@@ -1,0 +1,288 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:mounting
+LIBS:modules
+LIBS:I2C_OLED
+LIBS:microsd_adapter
+LIBS:audio_jack
+LIBS:8bitWave Faceplate-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Mounting M1
+U 1 1 5E3B603D
+P 10775 550
+F 0 "M1" H 10775 650 50  0001 C CNN
+F 1 "Mounting" H 10775 475 50  0001 C CNN
+F 2 "mounting:M3" H 10775 550 50  0001 C CNN
+F 3 "" H 10775 550 50  0001 C CNN
+	1    10775 550 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mounting M2
+U 1 1 5E3B604F
+P 10900 550
+F 0 "M2" H 10900 650 50  0001 C CNN
+F 1 "Mounting" H 10900 475 50  0001 C CNN
+F 2 "mounting:M3" H 10900 550 50  0001 C CNN
+F 3 "" H 10900 550 50  0001 C CNN
+	1    10900 550 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mounting M3
+U 1 1 5E3B605A
+P 11025 550
+F 0 "M3" H 11025 650 50  0001 C CNN
+F 1 "Mounting" H 11025 475 50  0001 C CNN
+F 2 "mounting:M3" H 11025 550 50  0001 C CNN
+F 3 "" H 11025 550 50  0001 C CNN
+	1    11025 550 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mounting M4
+U 1 1 5E3B6065
+P 11150 550
+F 0 "M4" H 11150 650 50  0001 C CNN
+F 1 "Mounting" H 11150 475 50  0001 C CNN
+F 2 "mounting:M3" H 11150 550 50  0001 C CNN
+F 3 "" H 11150 550 50  0001 C CNN
+	1    11150 550 
+	1    0    0    -1  
+$EndComp
+$Comp
+L 0.96_I2C_OLED IC1
+U 1 1 5E3B718A
+P 8325 2325
+F 0 "IC1" H 8325 2150 60  0000 C CNN
+F 1 "0.96_I2C_OLED" H 8300 2275 43  0000 C CNN
+F 2 "i2c_oled:0.96_I2C_OLED" H 8325 2950 60  0001 C CNN
+F 3 "" H 8325 2950 60  0001 C CNN
+	1    8325 2325
+	-1   0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR2
+U 1 1 5E3B7508
+P 5225 2875
+F 0 "#PWR2" H 5225 2725 50  0001 C CNN
+F 1 "+3.3V" H 5225 3015 50  0000 C CNN
+F 2 "" H 5225 2875 50  0001 C CNN
+F 3 "" H 5225 2875 50  0001 C CNN
+	1    5225 2875
+	-1   0    0    -1  
+$EndComp
+Text Label 7275 1700 0    60   ~ 0
+SCL
+Entry Wire Line
+	7150 1800 7250 1700
+Text Label 7275 1800 0    60   ~ 0
+SDA
+Entry Wire Line
+	7150 1900 7250 1800
+Wire Wire Line
+	8550 1700 8550 1875
+Wire Wire Line
+	8250 1700 7250 1700
+Wire Wire Line
+	8100 1800 7250 1800
+Wire Bus Line
+	7150 1900 7150 1800
+Wire Bus Line
+	5600 1850 7150 1850
+$Comp
+L Conn_01x07 J3
+U 1 1 5E3D299E
+P 4950 1775
+F 0 "J3" H 4950 2175 50  0000 C CNN
+F 1 "EXTENSION" V 5050 1775 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x07_Pitch2.54mm" H 4950 1775 50  0001 C CNN
+F 3 "" H 4950 1775 50  0001 C CNN
+	1    4950 1775
+	-1   0    0    -1  
+$EndComp
+$Comp
+L GND #PWR1
+U 1 1 5E3D3470
+P 5225 2150
+F 0 "#PWR1" H 5225 1900 50  0001 C CNN
+F 1 "GND" H 5225 2000 50  0000 C CNN
+F 2 "" H 5225 2150 50  0001 C CNN
+F 3 "" H 5225 2150 50  0001 C CNN
+	1    5225 2150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5225 2150 5225 2075
+Wire Wire Line
+	5225 2075 5150 2075
+Entry Wire Line
+	5600 1675 5500 1575
+Text Label 5475 1775 2    60   ~ 0
+D2
+Wire Wire Line
+	5150 1575 5500 1575
+Entry Wire Line
+	5600 1775 5500 1675
+Wire Wire Line
+	5150 1675 5500 1675
+Entry Wire Line
+	5600 1875 5500 1775
+Text Label 5475 1675 2    60   ~ 0
+D4
+Wire Wire Line
+	5150 1775 5500 1775
+Entry Wire Line
+	5600 1975 5500 1875
+Wire Wire Line
+	5150 1875 5500 1875
+Entry Wire Line
+	5600 2075 5500 1975
+Wire Wire Line
+	5150 1975 5500 1975
+Text Label 5475 1975 2    60   ~ 0
+SCL
+Text Label 5475 1875 2    60   ~ 0
+SDA
+Text Label 5475 1575 2    60   ~ 0
+D8
+$Comp
+L Conn_01x03 J1
+U 1 1 5E3E91C2
+P 4950 3050
+F 0 "J1" H 4900 3250 50  0000 L CNN
+F 1 "I2C_VOL" V 5075 3050 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 4950 3050 50  0001 C CNN
+F 3 "" H 4950 3050 50  0001 C CNN
+	1    4950 3050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5225 2875 5225 2950
+Wire Wire Line
+	5225 2950 5150 2950
+$Comp
+L +5V #PWR4
+U 1 1 5E3EA726
+P 5525 3075
+F 0 "#PWR4" H 5525 2925 50  0001 C CNN
+F 1 "+5V" H 5525 3215 50  0000 C CNN
+F 2 "" H 5525 3075 50  0001 C CNN
+F 3 "" H 5525 3075 50  0001 C CNN
+	1    5525 3075
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR5
+U 1 1 5E3ED47A
+P 5750 1550
+F 0 "#PWR5" H 5750 1300 50  0001 C CNN
+F 1 "GND" H 5750 1400 50  0000 C CNN
+F 2 "" H 5750 1550 50  0001 C CNN
+F 3 "" H 5750 1550 50  0001 C CNN
+	1    5750 1550
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 1550 5750 1475
+Wire Wire Line
+	5750 1475 5150 1475
+Wire Wire Line
+	5150 3150 5525 3150
+$Comp
+L VCC #PWR3
+U 1 1 5E3EF557
+P 5375 2975
+F 0 "#PWR3" H 5375 2825 50  0001 C CNN
+F 1 "VCC" H 5375 3125 50  0000 C CNN
+F 2 "" H 5375 2975 50  0001 C CNN
+F 3 "" H 5375 2975 50  0001 C CNN
+	1    5375 2975
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5375 2975 5375 3050
+Wire Wire Line
+	5375 3050 5150 3050
+Wire Wire Line
+	5525 3150 5525 3075
+Wire Wire Line
+	8250 1700 8250 1875
+Wire Wire Line
+	8100 1800 8100 1875
+Wire Wire Line
+	8550 1700 8825 1700
+Wire Wire Line
+	8825 1700 8825 1800
+$Comp
+L GND #PWR7
+U 1 1 5E3EF7B8
+P 8825 1800
+F 0 "#PWR7" H 8825 1550 50  0001 C CNN
+F 1 "GND" H 8825 1650 50  0000 C CNN
+F 2 "" H 8825 1800 50  0001 C CNN
+F 3 "" H 8825 1800 50  0001 C CNN
+	1    8825 1800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR6
+U 1 1 5E3EF86D
+P 8400 1700
+F 0 "#PWR6" H 8400 1550 50  0001 C CNN
+F 1 "VCC" H 8400 1850 50  0000 C CNN
+F 2 "" H 8400 1700 50  0001 C CNN
+F 3 "" H 8400 1700 50  0001 C CNN
+	1    8400 1700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 1700 8400 1875
+Wire Bus Line
+	5600 1675 5600 2075
+$EndSCHEMATC
