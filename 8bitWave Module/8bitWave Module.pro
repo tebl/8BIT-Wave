@@ -1,4 +1,4 @@
-update=06/02/2020 21:42:47
+update=08/02/2020 16:39:30
 version=1
 last_client=kicad
 [pcbnew]
@@ -66,3 +66,13 @@ LibName34=C:/Program Files/KiCad/share/kicad/library/modules
 LibName35=I2C_OLED
 LibName36=microsd_adapter
 LibName37=audio_jack
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=../documentation/schematic/
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=Pcbnew
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
