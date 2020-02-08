@@ -3,4 +3,5 @@
   (lib (name i2c_oled)(type KiCad)(uri $KIPRJMOD/../common/modules/i2c_oled.pretty)(options "")(descr ""))
   (lib (name sd_card_adapter)(type KiCad)(uri $KIPRJMOD/../common/modules/sd_card_adapter.pretty)(options "")(descr ""))
   (lib (name audio_jack)(type KiCad)(uri $KIPRJMOD/../common/modules/audio_jack.pretty)(options "")(descr ""))
+  (lib (name icons)(type KiCad)(uri $KIPRJMOD/../common/modules/icons.pretty)(options "")(descr ""))
 )
