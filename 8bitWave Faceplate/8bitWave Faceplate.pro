@@ -1,4 +1,4 @@
-update=09/02/2020 00:08:11
+update=09/02/2020 20:33:00
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,16 +25,6 @@ version=1
 NetIExt=net
 [general]
 version=1
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=../documentation/schematic/
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=Pcbnew
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
 [eeschema]
 version=1
 LibDir=../common/library
@@ -77,3 +67,15 @@ LibName35=I2C_OLED
 LibName36=microsd_adapter
 LibName37=audio_jack
 LibName38=74hc595_alt
+LibName39=i2c_voltage
+LibName40=extension
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=../documentation/schematic/
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=Pcbnew
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

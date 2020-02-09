@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP I2C_VOLTAGE_SELECT
+D Dual Jumper, normally closed
+K jumper bridge link nc
+$ENDCMP
+#
+#End Doc Library

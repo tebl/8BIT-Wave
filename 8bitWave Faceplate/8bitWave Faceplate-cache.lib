@@ -1,22 +1,6 @@
 EESchema-LIBRARY Version 2.3
 #encoding utf-8
 #
-# +3V3
-#
-DEF +3V3 #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "+3V3" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-ALIAS +3.3V
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +3V3 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
 # +5V
 #
 DEF +5V #PWR 0 0 Y Y 1 F P
@@ -118,37 +102,11 @@ X ~ 2 0 -100 80 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Conn_01x03
+# Extension
 #
-DEF Conn_01x03 J 0 40 Y N 1 F N
-F0 "J" 0 200 50 H V C CNN
-F1 "Conn_01x03" 0 -200 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*_??x*mm*
- Connector*:*1x??x*mm*
- Pin?Header?Straight?1X*
- Pin?Header?Angled?1X*
- Socket?Strip?Straight?1X*
- Socket?Strip?Angled?1X*
-$ENDFPLIST
-DRAW
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 105 0 95 1 1 6 N
-S -50 150 50 -150 1 1 10 f
-X Pin_1 1 -200 100 150 R 50 50 1 1 P
-X Pin_2 2 -200 0 150 R 50 50 1 1 P
-X Pin_3 3 -200 -100 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# Conn_01x07
-#
-DEF Conn_01x07 J 0 40 Y N 1 F N
+DEF Extension J 0 40 Y N 1 F N
 F0 "J" 0 400 50 H V C CNN
-F1 "Conn_01x07" 0 -400 50 H V C CNN
+F1 "Extension" 0 -400 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -174,7 +132,7 @@ X Pin_3 3 -200 100 150 R 50 50 1 1 P
 X Pin_4 4 -200 0 150 R 50 50 1 1 P
 X Pin_5 5 -200 -100 150 R 50 50 1 1 P
 X Pin_6 6 -200 -200 150 R 50 50 1 1 P
-X Pin_7 7 -200 -300 150 R 50 50 1 1 P
+X Pin_7 7 -200 -300 150 R 50 50 1 1 w
 ENDDRAW
 ENDDEF
 #
@@ -188,6 +146,32 @@ F3 "" 0 0 50 H I C CNN
 DRAW
 P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
 X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# I2C_VOLTAGE
+#
+DEF I2C_VOLTAGE J 0 40 Y N 1 F N
+F0 "J" 0 200 50 H V C CNN
+F1 "I2C_VOLTAGE" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 50 -150 1 1 10 f
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 -200 0 150 R 50 50 1 1 w
+X Pin_3 3 -200 -100 150 R 50 50 1 1 w
 ENDDRAW
 ENDDEF
 #

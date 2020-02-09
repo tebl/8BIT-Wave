@@ -36,15 +36,17 @@ LIBS:modules
 LIBS:I2C_OLED
 LIBS:microsd_adapter
 LIBS:audio_jack
+LIBS:arduino_nano
+LIBS:i2c_voltage_select
 LIBS:8bitWave Module-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
+Title "8BIT WAVE"
 Date ""
-Rev ""
+Rev "A"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -96,7 +98,7 @@ F 3 "" H 11150 550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Arduino_Nano_v3.x A1
+L Arduino_Nano A1
 U 1 1 5E3B6403
 P 6700 3550
 F 0 "A1" H 6500 4575 50  0000 R CNN
@@ -1175,7 +1177,7 @@ F 3 "" H 9600 850 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Jumper_NC_Dual JP5
+L I2C_VOLTAGE_SELECT JP5
 U 1 1 5E3E91C2
 P 6475 1025
 F 0 "JP5" H 6525 925 50  0000 L CNN
@@ -1255,4 +1257,6 @@ Wire Notes Line
 	6000 1250 6000 575 
 Text Notes 5925 1025 2    60   ~ 0
 OLEDs usually work\nin either position,\nlink pins 1-2 for 3.3v.
+Text Notes 7000 7025 0    60   ~ 0
+Based on the DigiWavuino, but I wanted to build my own version of it with a lot of\nfeatures no one would ever need - mostly because I wanted to play around with\nvarious things Arduino. There is an option for using either an 128x32 or 128x64 OLED,\ninstall whichever you want and hope that the software supports it - alternatively, use\none of the available faceplates and install the display there instead.
 $EndSCHEMATC
