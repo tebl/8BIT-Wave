@@ -1,0 +1,35 @@
+{
+    "name": "PCM", 
+    "version": "1.1", 
+    "keywords": [
+        "sound", 
+        "audio", 
+        "music", 
+        "sd", 
+        "card", 
+        "playback"
+    ], 
+    "description": "PCM/WAV playback direct from SD card", 
+    "repository": {
+        "type": "git", 
+        "url": "https://github.com/TMRh20/TMRpcm.git"
+    }, 
+    "frameworks": [
+        "arduino"
+    ], 
+    "platforms": [
+        "atmelavr"
+    ], 
+    "export": {
+        "exclude": "audio_samples"
+    }, 
+    "authors": [
+        {
+            "email": "tmrh20@gmail.com", 
+            "url": "https://github.com/TMRh20", 
+            "maintainer": false, 
+            "name": "TMRh20"
+        }
+    ], 
+    "id": 162
+}
