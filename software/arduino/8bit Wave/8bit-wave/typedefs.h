@@ -4,7 +4,11 @@
 typedef struct {
     void (*short_press)();
     void (*long_press)();
-} WaveState;
+} SwitchCallback;
+
+typedef struct {
+    SwitchCallback functions[SW_NUMBER_TOTAL];
+} SwitchFunctions;
 
 typedef struct {
     char lines[OLED_LINES][OLED_LINE_WIDTH + 1];

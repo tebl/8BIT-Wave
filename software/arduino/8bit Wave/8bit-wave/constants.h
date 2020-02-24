@@ -1,6 +1,7 @@
 #define EIGHTBIT_TITLE "8bit Wave"
 #define EIGHTBIT_VERSION "0.1"
 
+#define TICK_LENGTH 250
 #define NOTICE_DURATION 1000
 
 #define VOLUME_MIN 0
@@ -9,12 +10,17 @@
 /* PINS */
 #define LED_POWER 5
 #define LED_USER 3
+#define REM 6
+
+/* Number of physical switches (put here as a convenient way of avoiding magic
+ * numbers in code). Physical pin numbers listed below.
+ */
+#define SW_NUMBER_TOTAL 5 
 #define SW_PLAY 17
 #define SW_STOP 16
 #define SW_EJECT 7
-#define SW_UP 15
-#define SW_DOWN 14
-#define REM 6
+#define SW_UP 14
+#define SW_DOWN 15
 
 /* LED Settings */
 #define LED_MIN 0

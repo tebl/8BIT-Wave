@@ -8,7 +8,7 @@
 
 DisplayState state;
 
-void display_initialize() {
+void initialize_display() {
   ssd1306_setFixedFont(ssd1306xled_font8x16);
   ssd1306_128x64_i2c_init();
   ssd1306_fillScreen(0x00);
@@ -100,29 +100,6 @@ void display_set(int line, const char *string, int position) {
     }
   }
   state.lines[line][OLED_LINE_WIDTH] = 0;
-  /*
-  if (length < OLED_LINE_WIDTH) char_pos = 0;
-
-  if (length < char_pos) char_pos = 0;
-
-  int column = 0;
-  while (column < OLED_LINE_WIDTH) {
-    char c = string[char_pos];
-
-    if (c == 0) {
-      set_char(line, column, ' ');
-      char_pos = 0;
-      if (length < OLED_LINE_WIDTH) break;
-    } else {
-      set_char(line, column, c);
-      char_pos++;
-    }
-
-    column++;
-  }
-  state.lines[line][OLED_LINE_WIDTH] = 0;
-  */
-
   update_line(line);
 }
 
@@ -131,13 +108,7 @@ void display_clear() {
   display_bezel();
   for (int line = OLED_LINE_0; line < OLED_LINES; line++) {
     memset(state.lines[line], 0, OLED_LINE_WIDTH + 1);
-    state.lines[line][0] = ' ';
-  }
-}
-
-void display_update() {
-  for (int line = OLED_LINE_0; line < OLED_LINES; line++) {
-    update_line(line);
+    display_set(line, nullptr, 0);
   }
 }
 
@@ -147,6 +118,5 @@ void display_welcome(unsigned long duration) {
   display_clear();
   display_set(OLED_LINE_0, EIGHTBIT_TITLE, 0);
   display_set(OLED_LINE_1, EIGHTBIT_VERSION, 0);
-  display_update();
   delay(2000);
 }
