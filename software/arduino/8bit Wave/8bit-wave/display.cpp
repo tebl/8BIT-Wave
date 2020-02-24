@@ -99,13 +99,26 @@ void display_set(int line, const char *string, int position) {
       }
     }
   }
-  state.lines[line][OLED_LINE_WIDTH] = 0;
+  set_char(line, OLED_LINE_WIDTH, 0);
+  update_line(line);
+}
+
+void display_set(int line, const __FlashStringHelper *string) {
+  const char *ptr = (const char *) string;
+  for (int i = 0; i < OLED_LINE_WIDTH; i++) {
+    char c = pgm_read_byte_near(ptr++);
+    
+    set_char(line, i, c);
+    if (c == 0) break;
+  }
+  set_char(line, OLED_LINE_WIDTH, 0);
   update_line(line);
 }
 
 void display_clear() {
   ssd1306_clearScreen();
   display_bezel();
+
   for (int line = OLED_LINE_0; line < OLED_LINES; line++) {
     memset(state.lines[line], 0, OLED_LINE_WIDTH + 1);
     display_set(line, nullptr, 0);
@@ -116,7 +129,8 @@ void display_welcome(unsigned long duration) {
   display_bitmap(logo);
   delay(duration);
   display_clear();
-  display_set(OLED_LINE_0, EIGHTBIT_TITLE, 0);
-  display_set(OLED_LINE_1, EIGHTBIT_VERSION, 0);
+
+  display_set(OLED_LINE_0, F(EIGHTBIT_TITLE));
+  display_set(OLED_LINE_1, F(EIGHTBIT_VERSION));
   delay(2000);
 }

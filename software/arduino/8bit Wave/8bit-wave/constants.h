@@ -3,7 +3,7 @@
 
 #define TICK_LENGTH 250
 #define NOTICE_DURATION 1000
-
+#define FILENAME_MAX_LENGTH 100
 #define VOLUME_MIN 0
 #define VOLUME_MAX 7
 
