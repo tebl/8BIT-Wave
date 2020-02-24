@@ -18,9 +18,6 @@ TMRpcm Taudio;
 int volume = 3;
 bool ispaused = false;
 bool isstopped = true;
-#define TEXT_PLAY "PLAY A WAV:"
-#define TEXT_PLAYING "Playing:"
-#define TEXT_PAUSED "Paused!"
 
 SwitchFunctions switch_functions;
 
@@ -51,7 +48,7 @@ void setup() {
   // First Msg
   memset(filename, 0, sizeof(filename));
   display_set(OLED_LINE_0, F(TEXT_PLAY));
-  set_notice("(loading SD)");
+  set_notice(F(NOTICE_LOAD_SD));
 }
 
 void loop() {
@@ -88,7 +85,7 @@ void press_down() {
 
 void do_play() {
   if (is_file_selected()) {
-    set_notice("(No file!)");
+    set_notice(F(ERROR_FILE_NOT_FOUND));
   } else {
     isstopped = false;
     display_set(OLED_LINE_0, F(TEXT_PLAYING));
@@ -150,7 +147,7 @@ void check_audio_done() {
   if (!Taudio.isPlaying() and !isstopped) {
     do_stop();
     scroll_sync();
-    set_notice("(finished)");
+    set_notice(F(NOTICE_DONE));
   }
 }
 

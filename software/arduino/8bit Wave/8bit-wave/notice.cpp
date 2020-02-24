@@ -14,6 +14,15 @@ void set_notice(const char *string) {
 }
 
 /*
+ * Same thing except the string data is coming out of Flash memory, so you're
+ * supposed to figure out how to make that look nice by yourself (add spaces)!
+ */
+void set_notice(const __FlashStringHelper *string) {
+  display_set(OLED_LINE_2, string);
+  notice_timeout = millis() + NOTICE_DURATION;
+}
+
+/*
  * Check if the current notice has expired, clear it from the display if it has
  * already done so.
  */

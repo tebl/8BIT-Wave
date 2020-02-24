@@ -1,8 +1,5 @@
-#define EIGHTBIT_TITLE "8bit Wave"
-#define EIGHTBIT_VERSION "0.1"
-
 #define TICK_LENGTH 250
-#define NOTICE_DURATION 1000
+#define NOTICE_DURATION 2000
 #define FILENAME_MAX_LENGTH 100
 #define VOLUME_MIN 0
 #define VOLUME_MAX 7
@@ -47,3 +44,20 @@
 #define OLED_LINE_2 2
 #define OLED_LINES 3
 #define OLED_LINE_WIDTH 16
+#define OLED_CHAR_HEIGHT 8
+
+#define EIGHTBIT_TITLE          "    8BIT Wave   "
+#define EIGHTBIT_VERSION        "      0.1       "
+#define TEXT_PLAY               "PLAY A WAV:"
+#define TEXT_PLAYING            "Playing:"
+#define TEXT_PAUSED             "Paused!"
+#define NOTICE_DONE             "     (done)     "
+#define NOTICE_LOAD_SD          "  (loading SD)  "
+#define NOTICE_MOTOR_CTRL_ON    " (MotorCtrl ON) "
+#define NOTICE_MOTOR_CTRL_OFF   " (MotorCtrl OFF)"
+#define NOTICE_MOTOR_ON         "   (Motor ON)   "
+#define NOTICE_MOTOR_OFF        "   (Motor OFF)  "
+#define ERROR_OPEN_FAILED       " (SD read error)"
+#define ERROR_EMPTY_CARD        "(No files on SD)"
+#define ERROR_INSERT_CARD       "(Insert SD card)"
+#define ERROR_FILE_NOT_FOUND    "(file not found)"

@@ -15,10 +15,10 @@ extern TMRpcm Taudio;
 void toggle_motor_controls() {
   if (mctrl) {
     mctrl = false;
-    set_notice("(MotorCtrl OFF)");
+    set_notice(F(NOTICE_MOTOR_CTRL_OFF));
   } else {
     mctrl = true;
-    set_notice("(MotorCtrl ON)");
+    set_notice(F(NOTICE_MOTOR_CTRL_ON));
   }
 }
 
@@ -28,7 +28,7 @@ void toggle_motor_controls() {
  */
 void motor_off() {
   Taudio.pause();
-  set_notice("(Motor OFF)");
+  set_notice(F(NOTICE_MOTOR_OFF));
   ispaused = true;
 }
 
@@ -38,7 +38,7 @@ void motor_off() {
 void motor_on() {
   if (ispaused) {
     Taudio.pause();
-    set_notice("(Motor ON)");
+    set_notice(F(NOTICE_MOTOR_ON));
     ispaused = false;
   }
 }

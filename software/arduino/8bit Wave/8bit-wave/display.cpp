@@ -1,10 +1,10 @@
 #include <Arduino.h>
-#include "constants.h"
-#include "typedefs.h"
-#include "bitmap.h"
 #include <ssd1306.h>
 #include <ssd1306_console.h>
 #include <ssd1306_fonts.h>
+#include "constants.h"
+#include "typedefs.h"
+#include "bitmap.h"
 
 DisplayState state;
 
@@ -40,10 +40,21 @@ char get_char(const char *string, int position) {
   return string[position];
 }
 
+/*
+ * Blank out the area of this line by painting over it with a black rectangle.
+ * Not pretty, but it works so that's what you get when it's free! Should
+ * probably reset colour, but any text output does it for me so a few bytes
+ * spared (until it stops working).
+ */
 void blank_line(int line_number) {
-  ssd1306_printFixedN(0, line_to_y(line_number), "                ", STYLE_NORMAL, OLED_FACTOR);
+  ssd1306_setColor(0x0000);
+  ssd1306_fillRect(0, line_to_y(line_number), 128, line_to_y(line_number) + OLED_CHAR_HEIGHT);
 }
 
+/*
+ * Do a line update, but for the most part try not to (overwriting with the
+ * same just looks flickery).
+ */
 void update_line(int line) {
   if (state.dirty[line]) {
     blank_line(line);

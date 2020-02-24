@@ -39,8 +39,8 @@ void get_sd_position() {
   SdFile root;
   
   if (!root.open("/", O_RDONLY)) {
-    set_notice("(SD read error)");
-    sd.errorHalt("open root failed");
+    set_notice(F(ERROR_OPEN_FAILED));
+    sd.errorHalt(F("open root failed"));
     delay(2000);
     return;
   }
@@ -67,7 +67,7 @@ void get_sd_position() {
     display_set(OLED_LINE_1, filename);
   } else {
     display_set(OLED_LINE_1);
-    set_notice("(No files!)");
+    set_notice(F(ERROR_EMPTY_CARD));
     delay(2000);
   }
 }
@@ -79,7 +79,7 @@ void get_sd_position() {
  */
 bool check_sd_inserted() {
   while(!sd.begin(SD_CS_PIN, SD_SCK_MHZ(50))) {
-    set_notice("Card not found!");
+    set_notice(F(ERROR_INSERT_CARD));
     delay(1000);
   }
   return true;

@@ -13,7 +13,6 @@ void initialize_rem() {
 }
 
 void process_rem() {
-  // if motorcontrol engage
   if (digitalRead(REM) == HIGH && mctrl && Taudio.isPlaying()) {
     if (!isstopped && !ispaused) {
       motor_off();
