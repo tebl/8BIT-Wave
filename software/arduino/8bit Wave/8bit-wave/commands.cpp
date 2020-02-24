@@ -2,7 +2,7 @@
 #include <TMRpcm.h>
 #include "constants.h"
 #include "notice.h"
-#include "commands.h"
+#include "led_control.h"
 extern int volume;
 extern bool isstopped;
 extern bool ispaused;
@@ -51,29 +51,33 @@ void set_volume(int new_setting, bool suppress_notice) {
   else if (new_setting > VOLUME_MAX) volume = VOLUME_MAX;
   else volume = new_setting;
 
-  //analogWrite(LED_USER, map(volume, VOLUME_MIN, VOLUME_MAX, LED_USER_MIN, LED_USER_MAX));
-  analogWrite(LED_USER, LOW);
   Taudio.setVolume(volume);
-
   if (!suppress_notice) {
     char message[OLED_LINE_WIDTH];
     sprintf(message, "(Volume %d)", volume);
     set_notice(message);
+
+    /* Set volume on USER LED, have it fade out after a while */
+    set_led_fade_out(
+      LED_USER,
+      map(volume, VOLUME_MIN, VOLUME_MAX, LED_USER_MIN, LED_USER_MAX),
+      second_to_ticks(10)
+    );
   }
 }
 
 void increase_volume() {
-  set_volume(volume + 1);
+  set_volume(volume + 1, false);
 }
 
 void decrease_volume() {
-  set_volume(volume - 1);
+  set_volume(volume - 1, false);
 }
 
 /*
 * Toggle volume settings
 */
 void toggle_volume() {
-  if (VOLUME_MAX <= volume) set_volume(VOLUME_MIN);
+  if (VOLUME_MAX <= volume) set_volume(VOLUME_MIN, false);
   else increase_volume();
 }

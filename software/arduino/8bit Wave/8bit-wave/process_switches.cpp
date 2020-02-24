@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "constants.h"
 #include "typedefs.h"
+#include "led_control.h"
 extern SwitchFunctions switch_functions;
 
 #define STATE_WAIT 0
@@ -31,7 +32,7 @@ void initialize_switches() {
     digitalWrite(SW_EJECT, HIGH);
 }
 
-int get_index_for(int pin_number) {
+int get_index_for_switch(int pin_number) {
     switch(pin_number) {
         default:
         case SW_PLAY:   return 0;
@@ -47,28 +48,14 @@ SwitchCallback* get_callbacks_for(int index) {
 }
 
 void set_callback(int pin_number, void (*short_press)(), void (*long_press)()) {
-    int index = get_index_for(pin_number);
+    int index = get_index_for_switch(pin_number);
     SwitchCallback *callbacks = get_callbacks_for(index);
     callbacks->short_press = short_press;
     callbacks->long_press = long_press;
 }
 
-void flash_delay() {
-    delay(100);
-}
-
-void flash_led(int num_flashes) {
-    for (int i = 0; i < num_flashes; i++) {
-    if (i > 0) flash_delay();
-        analogWrite(LED_POWER, LED_MAX);
-        flash_delay();
-        analogWrite(LED_POWER, LED_MIN);
-    }
-}
-
-
 void check_switch(const int pin_number) {
-    int index = get_index_for(pin_number);
+    int index = get_index_for_switch(pin_number);
     SwitchCallback *callbacks = get_callbacks_for(index);
 
     if (callbacks->short_press == nullptr && callbacks->long_press == nullptr) return;
@@ -82,7 +69,9 @@ void check_switch(const int pin_number) {
             case STATE_CHECK1:
                 if ((millis() - debounce_time[index]) > DEBOUNCE_TIME1) {
                     if (callbacks->short_press != nullptr) {
-                        flash_led(1);
+                        #ifdef SW_FLASH_FIRST
+                        flash_led_now(LED_USER, 1);
+                        #endif
                         switch_action[index] = ACTION_RUN1;
                     }
                     switch_state[index]++;
@@ -91,7 +80,9 @@ void check_switch(const int pin_number) {
             case STATE_CHECK2:
                 if ((millis() - debounce_time[index]) > DEBOUNCE_TIME2) {
                     if (callbacks->long_press != nullptr) {
-                        flash_led(2);
+                        #ifdef SW_FLASH_SECOND
+                        flash_led_now(LED_USER, 2);
+                        #endif
                         switch_action[index] = ACTION_RUN2;
                     }
                     switch_state[index]++;
