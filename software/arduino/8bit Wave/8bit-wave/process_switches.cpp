@@ -2,7 +2,7 @@
 #include "constants.h"
 #include "typedefs.h"
 #include "led_control.h"
-extern SwitchFunctions switch_functions;
+SwitchFunctions switch_functions;
 
 #define STATE_WAIT 0
 #define STATE_CHECK1 1

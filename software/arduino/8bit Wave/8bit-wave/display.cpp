@@ -126,6 +126,12 @@ void display_set(int line, const __FlashStringHelper *string) {
   update_line(line);
 }
 
+void display_clock(int line, const int hours, const int minutes, const int seconds) {
+  sprintf(state.lines[line], "    %02d:%02d:%02d   ", hours, minutes, seconds);
+  state.dirty[line] = true;
+  update_line(line);
+}
+
 void display_clear() {
   ssd1306_clearScreen();
   display_bezel();

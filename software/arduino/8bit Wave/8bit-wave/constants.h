@@ -25,9 +25,9 @@
 /* LED Settings */
 #define LED_MIN 0
 #define LED_MAX 56
-#define LED_POWER_MIN LED_MIN
+#define LED_POWER_MIN 1
 #define LED_POWER_MAX LED_MAX
-#define LED_USER_MIN LED_MIN
+#define LED_USER_MIN 1
 #define LED_USER_MAX LED_MAX
 #define LED_STEP 3
 #define LED_MODE_NONE 0

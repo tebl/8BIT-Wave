@@ -1,3 +1,6 @@
+void initialize_commands();
+void check_audio_done();
+
 void toggle_motor_controls();
 void motor_on();
 void motor_off();
