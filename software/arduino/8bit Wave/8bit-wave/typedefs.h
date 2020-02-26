@@ -22,6 +22,7 @@ typedef struct {
 typedef struct {
     char lines[OLED_LINES][OLED_LINE_WIDTH + 1];
     bool dirty[OLED_LINES];
+    char buffer[OLED_LINE_WIDTH + 1];
 } DisplayState;
 
 #endif

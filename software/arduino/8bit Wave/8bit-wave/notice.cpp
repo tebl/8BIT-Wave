@@ -97,11 +97,7 @@ void update_timer() {
   int seconds = time_now % SECONDS_PER_MINUTE;
 
   timer_timeout = millis() + NOTICE_DURATION;
-  unsigned int sum = hours + minutes + seconds;
-  if (sum != timer_last) {
-    timer_last = sum;
-    display_clock(OLED_LINE_2, hours, minutes, seconds);
-  }
+  display_clock(OLED_LINE_2, hours, minutes, seconds);
 }
 
 /*

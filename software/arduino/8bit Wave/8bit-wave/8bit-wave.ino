@@ -11,7 +11,6 @@
 #include "scrolling.h"
 #include "commands.h"
 
-bool mctrl = 0;
 TMRpcm Taudio;
 bool ispaused = false;
 bool isstopped = true;
@@ -22,7 +21,7 @@ void setup() {
   /* Setup pins */
   Taudio.speakerPin = 9;
 
-  /* Initialie subsystems */
+  /* Initialize subsystems */
   initialize_led();
   initialize_display();
   initialize_rem();

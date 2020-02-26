@@ -17,7 +17,7 @@ int scroll_index = 0;
 void scroll_filename() {
   if (!Taudio.isPlaying()) {
     display_set(OLED_LINE_1, filename, scroll_index);
-    if (scroll_index <= scroll_length) scroll_index++;
+    if (scroll_index < scroll_length) scroll_index++;
     else scroll_index = 0;
   }
 }

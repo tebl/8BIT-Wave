@@ -15,7 +15,6 @@ int volume = 3;
 extern int volume;
 extern bool isstopped;
 extern bool ispaused;
-extern bool mctrl;
 extern TMRpcm Taudio;
 
 /*
@@ -23,11 +22,11 @@ extern TMRpcm Taudio;
  * button.
  */
 void toggle_motor_controls() {
-  if (mctrl) {
-    mctrl = false;
+  if (is_rem_enabled()) {
+    set_rem_enabled(false);
     set_notice(F(NOTICE_MOTOR_CTRL_OFF));
   } else {
-    mctrl = true;
+    set_rem_enabled(true);
     set_notice(F(NOTICE_MOTOR_CTRL_ON));
   }
 }
@@ -38,6 +37,7 @@ void toggle_motor_controls() {
  */
 void motor_off() {
   Taudio.pause();
+  set_timer_pause();
   set_notice(F(NOTICE_MOTOR_OFF));
   ispaused = true;
 }
@@ -48,6 +48,7 @@ void motor_off() {
 void motor_on() {
   if (ispaused) {
     Taudio.pause();
+    set_timer_resume();
     set_notice(F(NOTICE_MOTOR_ON));
     ispaused = false;
   }
@@ -156,6 +157,7 @@ void do_stop() {
   display_set(OLED_LINE_0, F(TEXT_PLAY));
   set_led_neutral(LED_POWER);
   set_timer_stop();
+  ispaused = false;
   isstopped = true;
 }
 
@@ -188,7 +190,7 @@ void initialize_commands() {
 
   set_volume(volume, true);
 
-  set_callback(SW_PLAY, press_play, nullptr);
+  set_callback(SW_PLAY, press_play);
   set_callback(SW_STOP, press_stop, nullptr);
   set_callback(SW_EJECT, nullptr, toggle_motor_controls);
   set_callback(SW_UP, press_up, increase_volume);

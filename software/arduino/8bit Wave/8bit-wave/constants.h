@@ -24,7 +24,7 @@
 
 /* LED Settings */
 #define LED_MIN 0
-#define LED_MAX 56
+#define LED_MAX 8//56
 #define LED_POWER_MIN 1
 #define LED_POWER_MAX LED_MAX
 #define LED_USER_MIN 1
@@ -45,6 +45,7 @@
 #define OLED_LINES 3
 #define OLED_LINE_WIDTH 16
 #define OLED_CHAR_HEIGHT 8
+#define OLED_CHAR_WIDTH 16
 
 #define EIGHTBIT_TITLE          "    8BIT Wave   "
 #define EIGHTBIT_VERSION        "      0.1       "
