@@ -184,14 +184,19 @@ void display_set(const int line) {
 /*
  * Display a string on the specified line. Position can be used in order to
  * have the routine scroll through the data, in which case we'll wrap around
- * characters in order to fill the space available. A position of -1 means
- * that we should attempt to center the line on screen (not available when
- * the string is longer than the available space).
+ * characters in order to fill the space available.
+ * 
+ * A position of -1 means that we should attempt to center the line on screen
+ * (not available when the string is longer than the available space). When
+ * filter_extension is set we remove the four characters of the string,
+ * assuming it to be a three character file extension.
  */
-void display_set(const int line, const char *string, const int position) {
+int display_set(const int line, const char *string, const int position, bool filter_extension) {
   int length = strlen(string);
+  int actual_length = length;
+  if (filter_extension) actual_length = length - 4;
 
-  if (length < OLED_LINE_WIDTH) {
+  if (actual_length <= OLED_LINE_WIDTH) {
     int column = 0;
 
     /* Position -1 means that we are supposed to center the text on the line
@@ -209,6 +214,8 @@ void display_set(const int line, const char *string, const int position) {
     for (int i = 0; i < OLED_LINE_WIDTH; i++) {
       char c = get_char(string, i);
       if (c == 0) end_found = true;
+      if (filter_extension && (actual_length <= i)) end_found = true;
+
       if (end_found) set_buffer_char(column, ' ');
       else set_buffer_char(column, c);
 
@@ -226,6 +233,9 @@ void display_set(const int line, const char *string, const int position) {
       if (c == 0) {
         set_buffer_char(column, ' ');
         char_pos = 0;
+      } else if (filter_extension && ((length - 4) <= char_pos)) {
+        set_buffer_char(column, ' ');
+        char_pos++;
       } else {
         set_buffer_char(column, c);
         char_pos++;
@@ -234,6 +244,20 @@ void display_set(const int line, const char *string, const int position) {
   }
 
   flip_buffer_to(line);
+
+  /* Return the next possible position for scrolling */
+  if (position < 0) return position;
+  if (position < length) return position + 1;
+  return 0;
+}
+
+/*
+ * The same as the above, except that we default to blanking out the four
+ * character file extension (we'll just put spaces instead, calling the
+ * whole thing a feature instead of a hack).
+ */
+int display_filename(const int line, const char *string, const int position = 0, bool filter_extension = true) {
+  return display_set(line, string, position, filter_extension);
 }
 
 /*

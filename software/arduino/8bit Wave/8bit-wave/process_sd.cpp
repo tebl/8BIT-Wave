@@ -50,8 +50,8 @@ void get_sd_position() {
   if (counted < file_index) file_index = counted;
 
   if (file_index >= 0) {
-    scroll_sync();
-    display_set(OLED_LINE_1, filename);
+    scroll_reset();
+    display_filename(OLED_LINE_1, filename);
   } else {
     display_set(OLED_LINE_1);
     set_notice(F(ERROR_EMPTY_CARD));

@@ -1,2 +1,2 @@
 void scroll_filename();
-void scroll_sync();
+void scroll_reset();

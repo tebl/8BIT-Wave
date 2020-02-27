@@ -51,7 +51,7 @@ void press_pause() {
   if (player_is_paused()) {
     if (player_resume()) {
       display_set(OLED_LINE_0, F(TEXT_PLAYING));
-      display_set(OLED_LINE_1, filename);
+      display_filename(OLED_LINE_1, filename);
       set_led_cycle(LED_POWER);
       set_timer_resume();
     } 
@@ -70,7 +70,7 @@ void press_play() {
       set_notice(F(ERROR_FILE_NOT_FOUND));
     } else {
       display_set(OLED_LINE_0, F(TEXT_PLAYING));
-      display_set(OLED_LINE_1, filename);
+      display_filename(OLED_LINE_1, filename);
       set_led_cycle(LED_POWER);
       set_timer_start();
 
@@ -95,7 +95,7 @@ void do_stop() {
   set_led_neutral(LED_POWER);
   set_timer_stop();
 
-  scroll_sync();
+  scroll_reset();
   set_timer_stop();
 
   is_stopped = true;
