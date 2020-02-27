@@ -1,5 +1,4 @@
-#ifndef _TYPEDEFS_H
-#define _TYPEDEFS_H
+#pragma once
 
 typedef struct {
     void (*short_press)();
@@ -24,5 +23,3 @@ typedef struct {
     bool dirty[OLED_LINES];
     char buffer[OLED_LINE_WIDTH + 1];
 } DisplayState;
-
-#endif

@@ -5,23 +5,20 @@
 #include "led_control.h"
 #include "display.h"
 #include "notice.h"
+#include "player.h"
 #include "process_switches.h"
 #include "process_rem.h"
 #include "process_sd.h"
 #include "scrolling.h"
 #include "commands.h"
 
-TMRpcm Taudio;
-bool ispaused = false;
-bool isstopped = true;
-
 void setup() {
+  #ifdef DEBUG
   Serial.begin(9600);
-
-  /* Setup pins */
-  Taudio.speakerPin = 9;
+  #endif
 
   /* Initialize subsystems */
+  initialize_player();
   initialize_led();
   initialize_display();
   initialize_rem();

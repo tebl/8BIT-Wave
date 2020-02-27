@@ -2,9 +2,9 @@
 #include <TMRpcm.h>
 #include "constants.h"
 #include "display.h"
+#include "player.h"
 
 extern char filename[FILENAME_MAX_LENGTH];
-extern TMRpcm Taudio;
 
 int scroll_length = 0;
 int scroll_index = 0;
@@ -15,7 +15,7 @@ int scroll_index = 0;
  * sync every time the filename changes.
  */
 void scroll_filename() {
-  if (!Taudio.isPlaying()) {
+  if (!player_is_started()) {
     display_set(OLED_LINE_1, filename, scroll_index);
     if (scroll_index < scroll_length) scroll_index++;
     else scroll_index = 0;

@@ -6,6 +6,7 @@
 #include "display.h"
 #include "scrolling.h"
 #include "notice.h"
+#include "player.h"
 extern char filename[FILENAME_MAX_LENGTH];
 const uint8_t SD_CS_PIN = SS;
 
@@ -13,20 +14,6 @@ SdFat sd;
 
 bool sd_dirty = true;
 int file_index = 0;
-
-/*
- * Check if the extension of the filename currently specified matches that of
- * a wav-file.
- */
-bool is_wav(const char *string) {
-  const size_t length = strlen(string);
-  if (length < 5) return false;
-  if (!(string[length - 4] == '.')) return false;
-  if (!(string[length - 3] == 'w' || string[length - 3] == 'W')) return false;
-  if (!(string[length - 2] == 'a' || string[length - 2] == 'A')) return false;
-  if (!(string[length - 1] == 'v' || string[length - 1] == 'V')) return false;
-  return true;
-}
 
 /*
  * Given a previously known file index, attempts to step through the
@@ -50,7 +37,7 @@ void get_sd_position() {
     if (!a_file.isSubDir() && !a_file.isHidden()) {
       memset(filename, 0, sizeof(filename));
       if (a_file.getName(filename, FILENAME_MAX_LENGTH)) {
-        if (is_wav(filename)) {
+        if (player_is_supported(filename)) {
           if (counted == -1) counted = 0;
           else counted++;
         }

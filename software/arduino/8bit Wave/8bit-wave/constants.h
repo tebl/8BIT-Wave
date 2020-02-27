@@ -1,14 +1,20 @@
+#define DEBUG
 #define TICK_LENGTH 250
 #define NOTICE_DURATION 2000
 #define FILENAME_MAX_LENGTH 100
-#define VOLUME_MIN 0
-#define VOLUME_MAX 7
+
+/* Player states */
+#define PLAYER_IDLE 0
+#define PLAYER_RUNNING 1
+#define PLAYER_PAUSED 2
+#define PLAYER_MOTOR_OFF 3
 
 /* PINS */
 #define LED_POWER 5
 #define LED_USER 3
 #define LED_NUMBER_TOTAL 2
 #define REM 6
+#define AUDIO_OUT 9
 
 /* Number of physical switches (put here as a convenient way of avoiding magic
  * numbers in code). Physical pin numbers listed below.
@@ -24,7 +30,11 @@
 
 /* LED Settings */
 #define LED_MIN 0
-#define LED_MAX 8//56
+#ifndef DEBUG
+#define LED_MAX 56
+#else
+#define LED_MAX 8
+#endif
 #define LED_POWER_MIN 1
 #define LED_POWER_MAX LED_MAX
 #define LED_USER_MIN 1
@@ -38,6 +48,7 @@
 #define LED_MODE_FLASH_OFF 5
 #define LED_FLASH_DELAY 100
 
+/* Display settings */
 #define OLED_FACTOR 0
 #define OLED_LINE_0 0
 #define OLED_LINE_1 1
@@ -47,6 +58,7 @@
 #define OLED_CHAR_HEIGHT 8
 #define OLED_CHAR_WIDTH 16
 
+/* Text segments used */
 #define EIGHTBIT_TITLE          "    8BIT Wave   "
 #define EIGHTBIT_VERSION        "      0.1       "
 #define TEXT_PLAY               "PLAY A WAV:"
