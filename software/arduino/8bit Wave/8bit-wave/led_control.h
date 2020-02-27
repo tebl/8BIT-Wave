@@ -1,5 +1,7 @@
 void initialize_led();
 void led_tick();
+int get_led_mode(int pin_number);
+void set_led_mode(int pin_number, int led_mode = LED_MODE_NONE);
 void set_led_neutral(int pin_number);
 void set_led_flash(int pin_number, int value = -1);
 void set_led_cycle(int pin_number);

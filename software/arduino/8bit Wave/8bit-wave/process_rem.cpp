@@ -4,8 +4,10 @@
 #include "notice.h"
 #include "commands.h"
 #include "player.h"
+#include "led_control.h"
 
 bool rem_enabled = false;
+int previous_led_mode = LED_MODE_NONE;
 
 void initialize_rem() { 
   pinMode(REM, INPUT_PULLUP);
@@ -47,18 +49,20 @@ bool is_rem_asserted() {
 
 void process_rem() {
   if (!is_rem_enabled()) return;
-
   if (is_rem_asserted()) {
     if (player_is_running()) {
       player_motor_off();
       set_timer_resume();
-      set_notice(F(NOTICE_MOTOR_ON));
+      previous_led_mode = get_led_mode(LED_USER);
+      set_led_cycle(LED_USER);
+      set_notice(F(NOTICE_MOTOR_OFF));
     }
   } else {
     if (player_is_motor_off()) {
       player_motor_on();
       set_timer_pause();
-      set_notice(F(NOTICE_MOTOR_OFF));
+      set_led_mode(LED_USER, previous_led_mode);
+      set_notice(F(NOTICE_MOTOR_ON));
     }
   }
 }

@@ -182,3 +182,34 @@ void led_tick() {
   do_led_tick( &led_settings[get_index_for_led(LED_POWER)] );
   do_led_tick( &led_settings[get_index_for_led(LED_USER)] );
 }
+
+/*
+ * Get the current LED mode in case we'd want to resume it later using the
+ * function below.
+ */
+int get_led_mode(int pin_number) {
+  LedSetting *setting = get_led_setting(pin_number);
+  return setting->mode;
+}
+
+/*
+ * Set a specific mode using mode number, but note that here we're just
+ * trying to restore wherever we were before so we'll just try for some
+ * sensible values instead.
+ */
+void set_led_mode(int pin_number, int led_mode) {
+  switch(led_mode) {
+    default:
+    case LED_MODE_NONE:
+      set_led_neutral(pin_number);
+      break;
+    case LED_MODE_CYCLE_UP:
+    case LED_MODE_CYCLE_DOWN:
+      set_led_cycle(pin_number);
+      break;
+    case LED_MODE_FADE_OUT:
+      LedSetting *setting = get_led_setting(pin_number);
+      set_led_fade_out(pin_number, setting->value, 0);
+      break;
+  }
+}

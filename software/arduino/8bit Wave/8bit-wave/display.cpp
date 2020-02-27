@@ -309,5 +309,6 @@ void display_welcome(unsigned long duration) {
 
   display_set(OLED_LINE_0, F(EIGHTBIT_TITLE));
   display_set(OLED_LINE_1, F(EIGHTBIT_VERSION));
+  display_set(OLED_LINE_2, F(EIGHTBIT_HOMEPAGE));
   delay(2000);
 }

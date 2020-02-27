@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 #define TICK_LENGTH 250
 #define NOTICE_DURATION 2000
 #define FILENAME_MAX_LENGTH 100
@@ -61,6 +61,7 @@
 /* Text segments used */
 #define EIGHTBIT_TITLE          "    8BIT Wave   "
 #define EIGHTBIT_VERSION        "      0.1       "
+#define EIGHTBIT_HOMEPAGE       "github.com/tebl "
 #define TEXT_PLAY               "PLAY A WAV:"
 #define TEXT_PLAYING            "Playing:"
 #define TEXT_PAUSED             "Paused!"
