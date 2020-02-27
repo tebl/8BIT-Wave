@@ -31,7 +31,7 @@ void setup() {
 unsigned long next_tick = millis() + TICK_LENGTH;
 void tick() {
   if (next_tick < millis()) {
-    check_audio_done();
+    check_audio_finished();
     scroll_filename();
     led_tick();
     update_timer();

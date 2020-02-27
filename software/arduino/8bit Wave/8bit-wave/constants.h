@@ -25,7 +25,7 @@
 #define SW_EJECT 7
 #define SW_UP 14
 #define SW_DOWN 15
-//#define SW_FLASH_FIRST
+#define SW_FLASH_FIRST
 #define SW_FLASH_SECOND
 
 /* LED Settings */

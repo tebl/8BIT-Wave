@@ -46,20 +46,30 @@ bool player_is_paused() {
   return player_state == PLAYER_PAUSED;
 }
 
+/*
+ * Pause the player if possible, returns wether the player is actually paused at
+ * the end - this is done to ensure that the states haven't changed for any other
+ * reason such as either no longer playing or paused by REM(ote). 
+ */
 bool player_pause() {
   if (player_is_running()) {
     Taudio.pause();
     player_state = PLAYER_PAUSED;
   }
-  return true;
+  return player_is_paused();
 }
 
+/*
+ * Resume playing the file if possible, but note that this may not be possible if
+ * the player had been paused by REM(ote) or some other unforseen thing happening
+ * along the way.
+ */
 bool player_resume() {
   if (player_is_paused()) {
     Taudio.pause();
-    return true;
+    player_state = PLAYER_RUNNING;
   }
-  return false;
+  return !player_is_paused();
 }
 
 /*
@@ -80,10 +90,19 @@ bool player_is_started() {
   return false;
 }
 
+/*
+ * Determine if the player has been turned off via REM(ote), if that function
+ * is available.
+ */
 bool player_is_motor_off() {
   return player_state == PLAYER_MOTOR_OFF;
 }
 
+/*
+ * Turn off the player with the REM(ote) being the source, this also ensures
+ * that the user can no longer resume the tape by himself and in this way 
+ * allow the tape to get ahead of the program.
+ */
 bool player_motor_off() {
   if (player_is_running()) {
     Taudio.pause();
@@ -92,6 +111,9 @@ bool player_motor_off() {
   return player_is_motor_off();
 }
 
+/*
+ * Resume playing when previously paused via REM(ote).
+ */
 bool player_motor_on() {
   if (player_is_motor_off()) {
     player_state = PLAYER_RUNNING;

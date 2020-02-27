@@ -46,6 +46,9 @@ void press_down() {
   }
 }
 
+/*
+ * Handle pause/resume.
+ */
 void press_pause() {
   if (!player_is_started() || is_stopped) return;
   if (player_is_paused()) {
@@ -64,18 +67,26 @@ void press_pause() {
   }
 }
 
+/*
+ * Press the play button, this will have one of three different results based
+ * on the circumstances; play a file if idle, pause a file if started or
+ * resume if previously paused.
+ */
 void press_play() {
   if (is_stopped) {
     if (is_file_selected()) {
       set_notice(F(ERROR_FILE_NOT_FOUND));
     } else {
-      display_set(OLED_LINE_0, F(TEXT_PLAYING));
-      display_filename(OLED_LINE_1, filename);
-      set_led_cycle(LED_POWER);
-      set_timer_start();
-
       player_start(filename);
-      is_stopped = false;
+      if (player_is_started()) {
+        display_set(OLED_LINE_0, F(TEXT_PLAYING));
+        display_filename(OLED_LINE_1, filename);
+        set_led_cycle(LED_POWER);
+        set_timer_start();
+
+        is_stopped = false;
+        set_switch_callbacks(PLAYER_RUNNING);
+      }
     }
   } else {
     press_pause();
@@ -91,14 +102,17 @@ void press_play() {
 void do_stop() {
   player_stop();
 
-  display_set(OLED_LINE_0, F(TEXT_PLAY));
-  set_led_neutral(LED_POWER);
-  set_timer_stop();
+  if (!player_is_started()) {
+    display_set(OLED_LINE_0, F(TEXT_PLAY));
+    set_led_neutral(LED_POWER);
+    set_timer_stop();
 
-  scroll_reset();
-  set_timer_stop();
+    scroll_reset();
+    set_timer_stop();
 
-  is_stopped = true;
+    set_switch_callbacks(PLAYER_IDLE);
+    is_stopped = true;
+  }
 }
 
 /*
@@ -112,7 +126,7 @@ void press_stop() {
  * Run regularly to verify that audio is still playing, if it has stopped
  * then we pretend the stop button was pushed really hard.
  */
-void check_audio_done() {
+void check_audio_finished() {
   if (!is_stopped and !player_is_started()) {
     do_stop();
     set_notice(F(NOTICE_DONE));
@@ -123,10 +137,4 @@ void initialize_commands() {
   memset(filename, 0, sizeof(filename));
   display_set(OLED_LINE_0, F(TEXT_PLAY));
   set_notice(F(NOTICE_LOAD_SD));
-
-  set_callback(SW_PLAY, press_play);
-  set_callback(SW_STOP, press_stop, nullptr);
-  set_callback(SW_EJECT, nullptr, toggle_motor_controls);
-  set_callback(SW_UP, press_up, increase_volume);
-  set_callback(SW_DOWN, press_down, decrease_volume);
 }
