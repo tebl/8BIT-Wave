@@ -1,7 +1,7 @@
-//#define DEBUG
+#define DEBUG
 #define TICK_LENGTH 250
 #define NOTICE_DURATION 2000
-#define FILENAME_MAX_LENGTH 100
+#define FILENAME_MAX_LENGTH 40
 
 /* Player states */
 #define PLAYER_IDLE 0
@@ -60,9 +60,7 @@
 
 /* Text segments used */
 #define EIGHTBIT_TITLE          "    8BIT Wave   "
-#define EIGHTBIT_VERSION        "      0.1       "
 #define EIGHTBIT_HOMEPAGE       "github.com/tebl "
-#define TEXT_PLAY               "PLAY A WAV:"
 #define TEXT_PLAYING            "Playing:"
 #define TEXT_PAUSED             "Paused!"
 #define NOTICE_DONE             "     (done)     "
@@ -75,3 +73,22 @@
 #define ERROR_EMPTY_CARD        "(No files on SD)"
 #define ERROR_INSERT_CARD       "(Insert SD card)"
 #define ERROR_FILE_NOT_FOUND    "(file not found)"
+
+/* CAS Player */
+#ifdef PLAYER_CAS
+#define EIGHTBIT_VERSION        "     CAS 0.1    "
+#define TEXT_PLAY               "PLAY A CAS:"
+#define TEXT_1200_BAUD          "   (1200 BAUD)  "
+#define TEXT_2400_BAUD          "   (2400 BAUD)  "
+#define TEXT_3600_BAUD          "   (3600 BAUD)  "
+
+/* WAV Player */
+#elif PLAYER_WAV
+#define EIGHTBIT_VERSION        "     WAV 0.1    "
+#define TEXT_PLAY               "PLAY A WAV:"
+
+/* In case we forgot */
+#else
+#define TEXT_PLAY               "PLAY A WAV:"
+#define EIGHTBIT_VERSION        "      0.1       "
+#endif

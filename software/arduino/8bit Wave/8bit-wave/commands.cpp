@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <TMRpcm.h>
 #include "constants.h"
 #include "notice.h"
 #include "display.h"
@@ -9,11 +8,12 @@
 #include "process_rem.h"
 #include "scrolling.h"
 #include "player.h"
+#include "commands.h"
 
 char filename[FILENAME_MAX_LENGTH];
-
 bool is_stopped = true;
 
+#ifdef PLAYER_WAV
 /*
  * Update volume setting as provided by the player - note that as the player
  * controls the volume, we can only tell it we want it to change and then
@@ -31,15 +31,51 @@ void volume_changed(int new_setting) {
       second_to_ticks(10)
     );
 }
-void increase_volume() { volume_changed(player_volume_up()); }
-void decrease_volume() { volume_changed(player_volume_down()); }
+void increase_volume() { volume_changed(wav_volume_up()); }
+void decrease_volume() { volume_changed(wav_volume_down()); }
+#endif
 
+#ifdef PLAYER_CAS
+/*
+ * Update volume setting as provided by the player - note that as the player
+ * controls the volume, we can only tell it we want it to change and then
+ * report the percentage we got back it.
+ */
+void baud_rate_changed(int new_setting) {
+  switch (new_setting) {
+    default:
+    case 1200: set_notice(F(TEXT_1200_BAUD)); break;
+    case 2400: set_notice(F(TEXT_2400_BAUD)); break;
+    case 3600: set_notice(F(TEXT_3600_BAUD)); break;  
+  }
+
+  /* Set volume on USER LED, have it fade out after a while */
+  set_led_fade_out(
+    LED_USER,
+    map(new_setting, 1200, 3600, LED_USER_MIN, LED_USER_MAX),
+    second_to_ticks(10)
+  );
+}
+void baud_rate_up() {
+  baud_rate_changed(cas_baud_rate_up()); 
+}
+void baud_rate_down() { 
+  baud_rate_changed(cas_baud_rate_down());
+}
+#endif
+
+/*
+ * Pressed up 
+ */
 void press_up() {
   if (!player_is_started()) {
     previous_file();
   }
 }
 
+/*
+ * Pressed down
+ */
 void press_down() {
   if (!player_is_started()) {
     next_file();
@@ -85,14 +121,13 @@ void press_play() {
         set_timer_start();
 
         is_stopped = false;
-        set_switch_callbacks(PLAYER_RUNNING);
+        configure_switches(PLAYER_RUNNING);
       }
     }
   } else {
     press_pause();
   }
 }
-
 
 /*
  * Stop the player from making any more controlled noise. This function will
@@ -110,7 +145,7 @@ void do_stop() {
     scroll_reset();
     set_timer_stop();
 
-    set_switch_callbacks(PLAYER_IDLE);
+    configure_switches(PLAYER_IDLE);
     is_stopped = true;
   }
 }
@@ -133,8 +168,47 @@ void check_audio_finished() {
   }
 }
 
+/*
+ * Configure switches according to the specified player mode, this is so that
+ * we give different LED feedback depending on whichever functions are
+ * available.
+ */
+void configure_switches(int player_state) {
+  switch(player_state) {
+    case PLAYER_IDLE:
+      set_switch_callback(SW_PLAY, press_play);
+      set_switch_callback(SW_STOP);
+      set_switch_callback(SW_EJECT, nullptr, toggle_motor_controls);
+
+      #ifdef PLAYER_WAV
+      set_switch_callback(SW_UP, press_up, increase_volume);
+      set_switch_callback(SW_DOWN, press_down, decrease_volume);
+      #endif
+      #ifdef PLAYER_CAS
+      set_switch_callback(SW_UP, press_up, baud_rate_up);
+      set_switch_callback(SW_DOWN, press_down, baud_rate_down);
+      #endif
+      break;
+    default:
+      set_switch_callback(SW_PLAY, press_play);
+      set_switch_callback(SW_STOP, press_stop, nullptr);
+      set_switch_callback(SW_EJECT, nullptr, toggle_motor_controls);
+      
+      #ifdef PLAYER_WAV
+      set_switch_callback(SW_UP, increase_volume);
+      set_switch_callback(SW_DOWN, decrease_volume);
+      #else
+      set_switch_callback(SW_UP);
+      set_switch_callback(SW_DOWN);
+      #endif
+      break;
+  }
+}
+
 void initialize_commands() {
   memset(filename, 0, sizeof(filename));
   display_set(OLED_LINE_0, F(TEXT_PLAY));
   set_notice(F(NOTICE_LOAD_SD));
+
+  configure_switches(PLAYER_IDLE);
 }

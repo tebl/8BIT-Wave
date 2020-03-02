@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <TMRpcm.h>
 #include "constants.h"
 #include "typedefs.h"
 #include "led_control.h"
@@ -47,4 +46,6 @@ void loop() {
 
   process_switches();
   process_rem();
+
+  player_loop();
 }

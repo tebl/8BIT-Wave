@@ -288,7 +288,9 @@ void display_clock(const int line, const int hours, const int minutes, const int
  */
 void display_clear() {
   ssd1306_clearScreen();
+  #ifndef DEBUG
   display_bezel();
+  #endif
 
   for (int line = OLED_LINE_0; line < OLED_LINES; line++) {
     state.dirty[line] = true;
@@ -303,12 +305,16 @@ void display_clear() {
  * application.
  */
 void display_welcome(unsigned long duration) {
+  #ifndef DEBUG
   display_logo();
   delay(duration);
+  #endif
   display_clear();
 
+  #ifndef DEBUG
   display_set(OLED_LINE_0, F(EIGHTBIT_TITLE));
   display_set(OLED_LINE_1, F(EIGHTBIT_VERSION));
   display_set(OLED_LINE_2, F(EIGHTBIT_HOMEPAGE));
   delay(2000);
+  #endif
 }

@@ -11,6 +11,7 @@ extern char filename[FILENAME_MAX_LENGTH];
 const uint8_t SD_CS_PIN = SS;
 
 SdFat sd;
+SdFile entry;
 
 bool sd_dirty = true;
 int file_index = 0;
@@ -22,7 +23,6 @@ int file_index = 0;
  * to the file that we want.
  */
 void get_sd_position() {
-  SdFile a_file;
   SdFile root;
   
   if (!root.open("/", O_RDONLY)) {
@@ -33,10 +33,10 @@ void get_sd_position() {
   }
 
   int counted = -1;
-  while (a_file.openNext(&root, O_RDONLY)) {
-    if (!a_file.isSubDir() && !a_file.isHidden()) {
+  while (entry.openNext(&root, O_RDONLY)) {
+    if (!entry.isSubDir() && !entry.isHidden()) {
       memset(filename, 0, sizeof(filename));
-      if (a_file.getName(filename, FILENAME_MAX_LENGTH)) {
+      if (entry.getName(filename, FILENAME_MAX_LENGTH)) {
         if (player_is_supported(filename)) {
           if (counted == -1) counted = 0;
           else counted++;
@@ -44,12 +44,12 @@ void get_sd_position() {
       }
     }
 
-    a_file.close();
+    entry.close();
     if (file_index == counted) break;
   }
   if (counted < file_index) file_index = counted;
 
-  if (file_index >= 0) {
+  if (file_index != -1) {
     scroll_reset();
     display_filename(OLED_LINE_1, filename);
   } else {

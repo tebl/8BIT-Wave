@@ -21,25 +21,6 @@ int switch_action[SW_NUMBER_TOTAL];
 #define DEBOUNCE_TIME2 1500
 unsigned long debounce_time[SW_NUMBER_TOTAL];
 
-void set_switch_callbacks(int player_state) {
-  switch(player_state) {
-    case PLAYER_IDLE:
-      set_callback(SW_PLAY, press_play);
-      set_callback(SW_STOP);
-      set_callback(SW_EJECT, nullptr, toggle_motor_controls);
-      set_callback(SW_UP, press_up, increase_volume);
-      set_callback(SW_DOWN, press_down, decrease_volume);
-      break;
-    default:
-      set_callback(SW_PLAY, press_play);
-      set_callback(SW_STOP, press_stop, nullptr);
-      set_callback(SW_EJECT, nullptr, toggle_motor_controls);
-      set_callback(SW_UP, increase_volume);
-      set_callback(SW_DOWN, decrease_volume);
-      break;
-  }
-}
-
 void initialize_switches() {
   pinMode(SW_PLAY, INPUT_PULLUP);
   digitalWrite(SW_PLAY, HIGH);
@@ -51,9 +32,6 @@ void initialize_switches() {
   digitalWrite(SW_DOWN, HIGH);
   pinMode(SW_EJECT, INPUT_PULLUP);
   digitalWrite(SW_EJECT, HIGH);
-
-  /* Set callbacks consistent */
-  set_switch_callbacks(PLAYER_IDLE);
 }
 
 int get_index_for_switch(int pin_number) {
@@ -71,7 +49,7 @@ SwitchCallback* get_callbacks_for(int index) {
   return &switch_functions.functions[index];
 }
 
-void set_callback(int pin_number, void (*short_press)(), void (*long_press)()) {
+void set_switch_callback(int pin_number, void (*short_press)(), void (*long_press)()) {
   int index = get_index_for_switch(pin_number);
   SwitchCallback *callbacks = get_callbacks_for(index);
   callbacks->short_press = short_press;
