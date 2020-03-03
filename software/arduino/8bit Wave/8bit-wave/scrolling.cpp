@@ -7,7 +7,7 @@
 extern char filename[FILENAME_MAX_LENGTH];
 extern int file_index;
 int scroll_length = 0;
-int scroll_index = 0;
+int scroll_index = -SCROLL_DELAY;
 
 /*
  * Handles scrolling the filename across line 1 of the display, but do note that
@@ -16,7 +16,9 @@ int scroll_index = 0;
  */
 void scroll_filename() {
   if (!player_is_started() && is_file_selected()) {
-    scroll_index = display_filename(OLED_LINE_1, filename, scroll_index);
+    if (scroll_index >= 0) {
+      scroll_index = display_filename(OLED_LINE_1, filename, scroll_index);
+    } else scroll_index++;
   }
 }
 
@@ -26,5 +28,5 @@ void scroll_filename() {
  */
 void scroll_reset() {
   scroll_length = strlen(filename);
-  scroll_index = 0;
+  scroll_index = -SCROLL_DELAY;
 }

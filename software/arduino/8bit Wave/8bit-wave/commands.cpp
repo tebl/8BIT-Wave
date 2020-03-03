@@ -56,12 +56,8 @@ void baud_rate_changed(int new_setting) {
     second_to_ticks(10)
   );
 }
-void baud_rate_up() {
-  baud_rate_changed(cas_baud_rate_up()); 
-}
-void baud_rate_down() { 
-  baud_rate_changed(cas_baud_rate_down());
-}
+void baud_rate_up() { baud_rate_changed(cas_baud_rate_up()); }
+void baud_rate_down() { baud_rate_changed(cas_baud_rate_down()); }
 #endif
 
 /*
@@ -94,7 +90,7 @@ void press_pause() {
       display_filename(OLED_LINE_1, filename);
       set_led_cycle(LED_POWER);
       set_timer_resume();
-    } 
+    }
   } else {
     if (player_pause()) {
       display_set(OLED_LINE_0, F(TEXT_PAUSED));

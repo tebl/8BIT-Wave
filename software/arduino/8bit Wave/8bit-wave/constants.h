@@ -1,4 +1,5 @@
 #define TICK_LENGTH 250
+#define SCROLL_DELAY 4 /* In ticks */
 #define NOTICE_DURATION 2000
 #define FILENAME_MAX_LENGTH 48
 
