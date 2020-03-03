@@ -2,6 +2,7 @@
 #include "constants.h"
 #include "display.h"
 #include "player.h"
+#include "process_sd.h"
 
 extern char filename[FILENAME_MAX_LENGTH];
 extern int file_index;
@@ -14,7 +15,7 @@ int scroll_index = 0;
  * sync every time the filename changes.
  */
 void scroll_filename() {
-  if (!player_is_started() && file_index >= 0) {
+  if (!player_is_started() && is_file_selected()) {
     scroll_index = display_filename(OLED_LINE_1, filename, scroll_index);
   }
 }

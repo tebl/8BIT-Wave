@@ -87,6 +87,7 @@ void press_down() {
  */
 void press_pause() {
   if (!player_is_started() || is_stopped) return;
+
   if (player_is_paused()) {
     if (player_resume()) {
       display_set(OLED_LINE_0, F(TEXT_PLAYING));
@@ -115,13 +116,15 @@ void press_play() {
     } else {
       player_start(filename);
       if (player_is_started()) {
+        // Code only works if this println is here?
+        Serial.println("is_started");
+        configure_switches(PLAYER_RUNNING);
+        is_stopped = false;
+
         display_set(OLED_LINE_0, F(TEXT_PLAYING));
         display_filename(OLED_LINE_1, filename);
         set_led_cycle(LED_POWER);
         set_timer_start();
-
-        is_stopped = false;
-        configure_switches(PLAYER_RUNNING);
       }
     }
   } else {
@@ -191,15 +194,15 @@ void configure_switches(int player_state) {
       break;
     default:
       set_switch_callback(SW_PLAY, press_play);
-      set_switch_callback(SW_STOP, press_stop, nullptr);
+      set_switch_callback(SW_STOP, press_stop);
       set_switch_callback(SW_EJECT, nullptr, toggle_motor_controls);
       
       #ifdef PLAYER_WAV
       set_switch_callback(SW_UP, increase_volume);
       set_switch_callback(SW_DOWN, decrease_volume);
       #else
-      set_switch_callback(SW_UP);
-      set_switch_callback(SW_DOWN);
+      set_switch_callback(SW_UP, baud_rate_up);
+      set_switch_callback(SW_DOWN, baud_rate_down);
       #endif
       break;
   }

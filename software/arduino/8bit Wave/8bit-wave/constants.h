@@ -1,7 +1,6 @@
-#define DEBUG
 #define TICK_LENGTH 250
 #define NOTICE_DURATION 2000
-#define FILENAME_MAX_LENGTH 40
+#define FILENAME_MAX_LENGTH 48
 
 /* Player states */
 #define PLAYER_IDLE 0
@@ -49,6 +48,14 @@
 #define LED_FLASH_DELAY 100
 
 /* Display settings */
+#ifdef OLED_TEXT
+#define OLED_ADDRESS 0x3C
+#elif OLED_GRAPHIC
+#else
+#define OLED_TEXT
+#define OLED_ADDRESS 0x3C
+#endif
+
 #define OLED_FACTOR 0
 #define OLED_LINE_0 0
 #define OLED_LINE_1 1

@@ -170,6 +170,9 @@ int wav_volume_down() {
   return wav_volume(volume - 1);
 }
 
+void wav_loop() {
+}
+
 void initialize_wav_player() {
   Taudio.speakerPin = AUDIO_OUT;
   wav_volume(volume);

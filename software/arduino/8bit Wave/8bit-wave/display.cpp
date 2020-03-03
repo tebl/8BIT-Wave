@@ -1,12 +1,21 @@
 #include <Arduino.h>
+#include "constants.h"
+#ifdef OLED_GRAPHIC
 #include <ssd1306.h>
 #include <ssd1306_console.h>
 #include <ssd1306_fonts.h>
-#include "constants.h"
-#include "typedefs.h"
 #include "bitmap.h"
+#else
+#include <Wire.h>
+#include "SSD1306Ascii.h"
+#include "SSD1306AsciiWire.h"
+#endif
+#include "typedefs.h"
 
 DisplayState state;
+#ifdef OLED_TEXT
+SSD1306AsciiWire oled;
+#endif
 
 /* 
  * Clears the buffer set aside specifically for scratching data onto before
@@ -38,9 +47,18 @@ void clear_all_buffers() {
  * from the setup function of the firmware.
  */
 void initialize_display() {
+  #ifdef OLED_GRAPHIC
   ssd1306_setFixedFont(ssd1306xled_font8x16);
   ssd1306_128x64_i2c_init();
   ssd1306_clearScreen();
+  #else
+  Wire.begin();
+  Wire.setClock(400000L);
+  oled.begin(&Adafruit128x64, OLED_ADDRESS);
+  oled.setFont(X11fixed7x14);
+  oled.clear();
+  oled.setScrollMode(SCROLL_MODE_OFF);
+  #endif
   clear_all_buffers();
 }
 
@@ -81,7 +99,13 @@ void update_line(const int line, int first_change = -1) {
     const char *ptr = (const char *) &state.lines[line];
     if (first_change > 0) ptr+=(first_change);
 
+    #ifdef OLED_GRAPHIC
     ssd1306_printFixedN(column_to_x(first_change), line_to_y(line), ptr, STYLE_NORMAL, OLED_FACTOR);
+    #else
+    oled.setRow((line + 1) * 2);
+    oled.clearToEOL();
+    oled.println(state.lines[line]);
+    #endif
     state.dirty[line] = false;
   }
 }
@@ -163,6 +187,7 @@ void display_set_buffer(const __FlashStringHelper *string) {
   display_set_buffer((const char *) string);
 }
 
+#ifdef OLED_GRAPHIC
 /*
  * Displays a bitmap image on the screen, this assumes that the data should
  * take up the entire screen.
@@ -172,6 +197,7 @@ void display_bitmap(const uint8_t *buf) {
 }
 void display_logo() { display_bitmap(logo); }
 void display_bezel() { display_bitmap(bezel); }
+#endif
 
 /*
  * Clears the specified line.
@@ -227,7 +253,7 @@ int display_set(const int line, const char *string, const int position, bool fil
   } else {
     /* Scroll string */
     int char_pos = position % (length + 1);
-    for (int column; column < OLED_LINE_WIDTH; column++) {
+    for (int column = 0; column < OLED_LINE_WIDTH; column++) {
       char c = get_char(string, char_pos);
 
       if (c == 0) {
@@ -287,9 +313,13 @@ void display_clock(const int line, const int hours, const int minutes, const int
  * in the line buffers.
  */
 void display_clear() {
-  ssd1306_clearScreen();
-  #ifndef DEBUG
-  display_bezel();
+  #ifdef OLED_GRAPHIC
+    ssd1306_clearScreen();
+    #ifndef DEBUG
+      display_bezel();
+    #endif
+  #else
+    oled.clear();
   #endif
 
   for (int line = OLED_LINE_0; line < OLED_LINES; line++) {
@@ -305,16 +335,18 @@ void display_clear() {
  * application.
  */
 void display_welcome(unsigned long duration) {
-  #ifndef DEBUG
-  display_logo();
-  delay(duration);
+  #ifdef OLED_GRAPHIC
+    #ifndef DEBUG
+      display_logo();
+      delay(duration);
+    #endif
   #endif
   display_clear();
 
   #ifndef DEBUG
-  display_set(OLED_LINE_0, F(EIGHTBIT_TITLE));
-  display_set(OLED_LINE_1, F(EIGHTBIT_VERSION));
-  display_set(OLED_LINE_2, F(EIGHTBIT_HOMEPAGE));
-  delay(2000);
+    display_set(OLED_LINE_0, F(EIGHTBIT_TITLE));
+    display_set(OLED_LINE_1, F(EIGHTBIT_VERSION));
+    display_set(OLED_LINE_2, F(EIGHTBIT_HOMEPAGE));
+    delay(2000);
   #endif
 }

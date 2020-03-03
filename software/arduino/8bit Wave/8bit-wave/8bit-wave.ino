@@ -12,7 +12,7 @@
 #include "commands.h"
 
 void setup() {
-  #ifdef DEBUG
+  #ifdef SERIAL_DEBUG
   Serial.begin(9600);
   #endif
 

@@ -7,25 +7,21 @@
 #include "player_cas.h"
 
 extern SdFile entry;
-extern SdFat sd;
 
 extern volatile byte player_state;
 
 unsigned long bytesRead = 0;
 byte dragonMode = 0;
-byte out = LOW;
 byte input[11];
-volatile byte wbuffer[buffsize + 1][2];
-volatile byte morebuff = HIGH;
 
 /* From header */
 int baud_rate = BAUD_RATE_1200;
 int scale = 1;
 int period = 208;
 
-byte currentTask=lookHeader;
-byte currentType=typeNothing;
-byte fileStage=0;
+byte currentTask = lookHeader;
+byte currentType = typeNothing;
+byte fileStage = 0;
 
 byte copybuff = LOW;
 byte btemppos = 0;
@@ -35,10 +31,12 @@ byte bits[11];
 byte lastByte;
 volatile long count = 0;
 
-
-/* Used by audio out */
+/* ISR Variables */
+volatile byte out = LOW;
 volatile byte pass = 0;
 volatile byte pos = 0;
+volatile byte wbuffer[buffsize + 1][2];
+volatile byte morebuff = HIGH;
 volatile byte working = 0;
 
 /*
@@ -153,7 +151,7 @@ bool cas_motor_on() {
   return cas_motor_off();
 }
 
-int readfile(byte bytes, unsigned long p) {
+int cas_read_file(byte bytes, unsigned long p) {
   int i = 0;
   if (entry.seekSet(p)) {
     i = entry.read(input, bytes);
@@ -161,23 +159,64 @@ int readfile(byte bytes, unsigned long p) {
   return i;
 }
 
-void clearBuffer() {
-  for (int i = 0; i<= buffsize; i++) {
+void cas_clear_buffer() {
+  for (int i = 0; i <= buffsize; i++) {
     wbuffer[i][0] = 2;
     wbuffer[i][1] = 2;
   }
+}
+
+void wave() {
+  if (cas_is_running()) {
+    switch (wbuffer[pos][working]) {
+      case 0:
+        if ((pass == 0) | (pass == 1)) {
+          digitalWrite(AUDIO_OUT, out);
+        } else {
+          digitalWrite(AUDIO_OUT, !out);
+        }
+        break;
+
+      case 1:
+        if ((pass == 0) | (pass == 2)) {
+          digitalWrite(AUDIO_OUT, out);
+        } else {
+          digitalWrite(AUDIO_OUT, !out);
+        }
+        if (dragonMode == 1 && pass == 1) {
+          pass = 3;
+        }
+        break;
+
+      case 2:
+        digitalWrite(AUDIO_OUT, LOW);
+        break;
+    }
+  
+    pass = pass + 1;
+    if (pass == 4) {
+      pass = 0;
+      pos += 1;
+      if (pos > buffsize - (dragonBuff * dragonMode)) {
+        pos = 0;
+        working ^=1;
+        morebuff = HIGH;
+      }
+    }
+  } else digitalWrite(AUDIO_OUT, LOW);
 }
 
 /*
  * Start the player
  */
 void cas_start(char* filename) {
-  if(!entry.open(filename,O_READ)) return;
+  Timer1.stop();
+  if (!entry.open(filename, O_READ)) return;
   byte r = 0;
-
+  
   out = LOW;
-  if((r = readfile(8, bytesRead)) == 8) {
-    if(!memcmp(input, DRAGON, 8)) {
+  if ((r = cas_read_file(8, bytesRead)) == 8) {
+    if (!memcmp(input, DRAGON, 8)) {
       out = HIGH;
       dragonMode = 1;
       period = 240;
@@ -192,10 +231,12 @@ void cas_start(char* filename) {
   fileStage = 0;
 
   //noInterrupts();
-  clearBuffer();
+  cas_clear_buffer();
   player_state = PLAYER_RUNNING;
   //interrupts();
-  Timer1.restart();
+
+  Timer1.initialize(period);
+  Timer1.attachInterrupt(wave);  
 }
 
 /*
@@ -219,7 +260,7 @@ void cas_stop() {
 void cas_write(byte b) {
   if (dragonMode == 1) {
     for (int i = 0; i < 8; i++) {
-      if(b & 1) {
+      if (b & 1) {
         bits[i] = 1;
       } else bits[i] = 0;
       b = b >> 1;
@@ -230,7 +271,7 @@ void cas_write(byte b) {
   } else {
     bits[0] = 0;
     for (int i=1; i < 9; i++) {
-      if(b & 1) {
+      if (b & 1) {
         bits[i] = 1;
       } else bits[i] = 0;
       b = b >> 1;
@@ -242,13 +283,13 @@ void cas_write(byte b) {
 }
 
 void cas_silence() {
-  for(int i=0;i<11;i++) {
+  for (int i=0; i < 11; i++) {
     bits[i] = 2;
   }
 }
 
 void cas_header() {
-  for(int i = 0; i < 11; i++) {
+  for (int i = 0; i < 11; i++) {
     bits[i] = 1;
   }
 }
@@ -259,7 +300,8 @@ void cas_header() {
 void process_dragon() {
   lastByte = input[0];
   byte r = 0;
-  if ((r = readfile(1, bytesRead)) == 1) {
+
+  if ((r = cas_read_file(1, bytesRead)) == 1) {
     currentTask = wData;
     cas_write(input[0]);
     bytesRead += 1;
@@ -288,17 +330,17 @@ void process_dragon() {
  * Process CAS file data.
  */
 void process_cas() {
-  byte r=0;
+  byte r = 0;
   if (currentType == typeEOF) {
-    if(!count==0) {
+    if (!count == 0) {
       cas_silence();
-      count+=-1;  
+      count +=- 1;  
     } else cas_stop();    
     return;
   }
 
   if (currentTask == lookHeader || currentTask == wData) {
-    if ((r=readfile(8,bytesRead)) == 8) {
+    if ((r = cas_read_file(8, bytesRead)) == 8) {
       if (!memcmp(input, HEADER, 8)) {
         if (fileStage == 0) {
           currentTask = lookType;
@@ -320,7 +362,7 @@ void process_cas() {
   }
 
   if (currentTask == lookType) {
-    if ((r = readfile(10, bytesRead)) == 10) {
+    if ((r = cas_read_file(10, bytesRead)) == 10) {
       if (!memcmp(input, ASCII, 10)) {
         currentType = typeAscii;
         currentTask = wSilence;
@@ -399,7 +441,7 @@ void process_cas() {
  * the user interface.
  */
 void cas_loop() {
-  if (!cas_is_running()) return;
+  if (!cas_is_started()) return;
 
   noInterrupts();
   copybuff = morebuff;
@@ -411,15 +453,14 @@ void cas_loop() {
     copybuff = LOW;
   }
   if (btemppos <= buffsize - (dragonBuff * dragonMode)) { 
-    if (dragonMode == 1 ) {
+    if (dragonMode == 1) {
       process_dragon();
 
-      noInterrupts();
+      //noInterrupts();
       for (int t = 0; t < 8; t++) {
         if (btemppos <= buffsize) {
           wbuffer[btemppos][working ^ 1] = bits[t];
-          interrupts();
-          btemppos+=1;         
+          btemppos += 1;         
         } 
       }
 
@@ -427,59 +468,16 @@ void cas_loop() {
     } else {
       process_cas();
 
-      noInterrupts();
+      //noInterrupts();
       for(int t=0;t<11;t++) {
         if (btemppos <= buffsize) {
           wbuffer[btemppos][working ^ 1] = bits[t];
-          interrupts();
           btemppos += 1;
         }
       }
       //interrupts();
     }
   }
-}
-
-void wave() {
-  digitalWrite(LED_USER, HIGH);
-  return;
-  if (cas_is_running()) {
-    switch (wbuffer[pos][working]) {
-      case 0:
-        if ((pass == 0) | (pass == 1)) {
-          digitalWrite(AUDIO_OUT, out);
-        } else {
-          digitalWrite(AUDIO_OUT, !out);
-        }
-        break;
-
-      case 1:
-        if ((pass == 0) | (pass == 2)) {
-          digitalWrite(AUDIO_OUT, out);
-        } else {
-          digitalWrite(AUDIO_OUT, !out);
-        }
-        if (dragonMode == 1 && pass == 1) {
-          pass = 3;
-        }
-        break;
-
-      case 2:
-        digitalWrite(AUDIO_OUT, LOW);
-        break;
-    }
-  
-    pass = pass + 1;
-    if (pass == 4) {
-      pass = 0;
-      pos += 1;
-      if (pos > buffsize - (dragonBuff * dragonMode)) {
-        pos = 0;
-        working ^=1;
-        morebuff = HIGH;
-      }
-    }
-  } else digitalWrite(AUDIO_OUT, LOW);
 }
 
 int cas_baud_rate(int new_baud_rate) {
@@ -516,14 +514,11 @@ int cas_baud_rate_down() {
 }
 
 void initialize_cas_player() {
-  clearBuffer();
+  cas_clear_buffer();
   pinMode(AUDIO_OUT, OUTPUT);
   digitalWrite(AUDIO_OUT, LOW);
 
   player_state = PLAYER_IDLE;
 
   cas_baud_rate(BAUD_RATE_1200);
-  Timer1.initialize(period);
-  Timer1.attachInterrupt(wave);
-  Timer1.stop();
 }

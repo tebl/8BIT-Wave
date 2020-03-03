@@ -27,7 +27,7 @@ const byte BASIC[10] = { 0xD3, 0xD3, 0xD3, 0xD3, 0xD3, 0xD3, 0xD3, 0xD3, 0xD3, 0
 #define typeEOF       5
 
 #define SHORT_SILENCE       122
-#define LONG_SILENCE        SHORT_SILENCE*2
+#define LONG_SILENCE        SHORT_SILENCE * 2
 
 #define SHORT_HEADER        200
 #define LONG_HEADER         800

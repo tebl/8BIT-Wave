@@ -1,3 +1,5 @@
+#pragma once
+
 #ifdef PLAYER_CAS
 #define initialize_player initialize_cas_player
 #define player_loop cas_loop
