@@ -986,28 +986,26 @@ Wire Wire Line
 $Comp
 L conn:Conn_01x10 J2
 U 1 1 5E5F2F04
-P 925 1375
-F 0 "J2" H 843 1992 50  0000 C CNN
-F 1 "SPI" H 843 1901 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm" H 925 1375 50  0001 C CNN
-F 3 "~" H 925 1375 50  0001 C CNN
-	1    925  1375
+P 1675 1775
+F 0 "J2" H 1593 2392 50  0000 C CNN
+F 1 "SPI" H 1593 2301 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm" H 1675 1775 50  0001 C CNN
+F 3 "~" H 1675 1775 50  0001 C CNN
+	1    1675 1775
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 1125 1675
-NoConn ~ 1125 1775
-NoConn ~ 1125 975 
-NoConn ~ 1125 1075
-NoConn ~ 1125 1175
-NoConn ~ 1125 1275
-NoConn ~ 1125 1375
-NoConn ~ 1125 1475
-NoConn ~ 1125 1575
-NoConn ~ 1125 1875
+NoConn ~ 1875 2075
+NoConn ~ 1875 2175
+NoConn ~ 1875 1375
+NoConn ~ 1875 1475
+NoConn ~ 1875 1575
+NoConn ~ 1875 1675
+NoConn ~ 1875 1775
+NoConn ~ 1875 1875
+NoConn ~ 1875 1975
+NoConn ~ 1875 2275
 Wire Bus Line
 	5600 3925 5600 6150
 Wire Bus Line
 	5600 1675 5600 2075
-Text Notes 1200 1625 0    60   ~ 0
-Not actually used at\nthis point, it is here\nas an option for\nmounting (and\nsymmetry).
 $EndSCHEMATC
