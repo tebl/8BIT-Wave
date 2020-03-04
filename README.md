@@ -1,0 +1,5 @@
+# 8BIT Wave
+8BIT Wave is a project in an early stage, my goals for it is building a digital cassette deck for my old 8-bit retro computers. There are many versions of these already available and I already own a couple, but I seem to like building things more than actually using them so I had to build one myself. The computer on my desk at the moment is a Sharp MZ-700, so the [DigiWavuino](https://github.com/rickyelqasem/DigiWavuino) project by Ricky ElQasem was a logical place to begin.
+
+## Project status
+Currently it does not seem to load much of anything anywhere, but I managed to make it load one game on the Dragon 32 using the [MaxDuino](https://github.com/rcmolina/MaxDuino_v1.54) firmware so there is hope that someday I'll complete the thing and make it more reliable. More than likely I've messed something up in the amplifier-section and need to rethink that part.
