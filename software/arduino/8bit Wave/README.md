@@ -1,0 +1,4 @@
+# 8BIT Wave Player
+The 8Bit Wave Player is a version of [DigiWavuino](https://github.com/rickyelqasem/DigiWavuino) by Ricky ElQasem, but while his goals for the player was one that just works, mine was more a product out of playing with the Arduino code! What this means is that my version probably won't work, it'll have a lot added bugs, and for the most part a bunch of features that probably don't belong in an Audio device.
+
+I'm sharing the files as it's what I tend to do, maybe there are parts of it that can be salvaged or maybe someday it'll work like it should. Until that time, the software that I recommended using is the previously mentioned [DigiWavuino](https://github.com/rickyelqasem/DigiWavuino) or [MaxDuino](https://github.com/rcmolina/MaxDuino_v1.54).
