@@ -59,28 +59,6 @@ X ~ 2 0 -100 80 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_Jumper_NC_Dual
-#
-DEF Device_Jumper_NC_Dual JP 0 30 Y N 1 F N
-F0 "JP" 50 -100 50 H V L CNN
-F1 "Device_Jumper_NC_Dual" 0 100 50 H V C BNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- SolderJumper*Bridged*
-$ENDFPLIST
-DRAW
-A -60 10 64 386 1413 0 1 0 N -10 50 -110 50
-A 60 10 64 386 1413 0 1 0 N 110 50 10 50
-C -120 0 35 0 1 0 N
-C 0 0 36 0 1 0 N
-C 120 0 35 0 1 0 N
-X 1 1 -250 0 95 R 50 50 0 1 P
-X 2 2 0 -100 60 U 50 50 0 1 P
-X 3 3 250 0 95 L 50 50 0 1 P
-ENDDRAW
-ENDDEF
-#
 # Device_Jumper_NO_Small
 #
 DEF Device_Jumper_NO_Small JP 0 30 N N 1 F N
@@ -139,23 +117,6 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# I2C_OLED_0.91_I2C_OLED
-#
-DEF I2C_OLED_0.91_I2C_OLED IC 0 40 Y Y 1 F N
-F0 "IC" 50 -175 60 H V C CNN
-F1 "I2C_OLED_0.91_I2C_OLED" 75 -100 43 H V C CNN
-F2 "" 0 625 60 H I C CNN
-F3 "" 0 625 60 H I C CNN
-DRAW
-S -525 75 550 -325 0 1 0 N
-S 425 0 -300 -250 0 1 0 N
-X GND 1 -725 -275 200 R 50 50 1 1 W
-X VCC 2 -725 -175 200 R 50 50 1 1 W
-X SCL 3 -725 -75 200 R 50 50 1 1 B
-X SDA 4 -725 25 200 R 50 50 1 1 B
-ENDDRAW
-ENDDEF
-#
 # I2C_OLED_0.96_I2C_OLED
 #
 DEF I2C_OLED_0.96_I2C_OLED IC 0 40 Y Y 1 F N
@@ -170,6 +131,28 @@ X GND 1 -225 450 200 D 50 50 1 1 W
 X VCC 2 -75 450 200 D 50 50 1 1 W
 X SCL 3 75 450 200 D 50 50 1 1 B
 X SDA 4 225 450 200 D 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+# Jumper_Jumper_3_Bridged12
+#
+DEF Jumper_Jumper_3_Bridged12 JP 0 0 Y N 1 F N
+F0 "JP" -100 -100 50 H V C CNN
+F1 "Jumper_Jumper_3_Bridged12" 0 110 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ SolderJumper*Bridged12*
+$ENDFPLIST
+DRAW
+A -65 -50 89 1282 518 0 1 0 N -120 20 -10 20
+C -130 0 20 0 0 0 N
+C 0 0 20 0 0 0 N
+C 130 0 20 0 0 0 N
+P 2 0 1 0 0 -50 0 -20 N
+X A 1 -250 0 100 R 50 50 1 1 P
+X C 2 0 -150 100 U 50 50 1 1 I
+X B 3 250 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
@@ -265,6 +248,104 @@ X ~ 5 200 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# barrel_jack_VIN
+#
+DEF barrel_jack_VIN #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "barrel_jack_VIN" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C 0 75 25 0 1 0 N
+P 2 0 1 0 0 0 0 50 N
+X VIN 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# barrel_jack_V_EXT
+#
+DEF barrel_jack_V_EXT #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "barrel_jack_V_EXT" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C 0 75 25 0 1 0 N
+P 2 0 1 0 0 0 0 50 N
+X VEXT 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# barrel_jack_barrel_9v
+#
+DEF barrel_jack_barrel_9v J 0 40 Y Y 1 F N
+F0 "J" 0 210 50 H V C CNN
+F1 "barrel_jack_barrel_9v" 0 -175 50 H V C CNN
+F2 "" 50 -40 50 H I C CNN
+F3 "" 50 -40 50 H I C CNN
+ALIAS Jack-DC
+DRAW
+A -130 100 25 901 -901 0 1 10 F -130 125 -130 75
+A -130 100 25 901 -901 0 1 10 N -130 125 -130 75
+S 145 125 -130 75 0 1 10 F
+P 2 0 1 10 50 -90 75 -65 N
+P 2 0 1 10 200 100 150 100 N
+P 4 0 1 10 200 0 50 0 50 -90 25 -65 N
+P 6 0 1 10 -150 -100 -100 -100 -50 -50 0 -100 100 -100 200 -100 N
+X ~ 1 300 100 100 L 50 50 1 1 w
+X ~ 2 300 -100 100 L 50 50 1 1 P
+X ~ 3 300 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# barrel_jack_reverse_protect
+#
+DEF barrel_jack_reverse_protect D 0 40 N N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "barrel_jack_reverse_protect" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ TO-???*
+ *_Diode_*
+ *SingleDiode*
+ D_*
+$ENDFPLIST
+DRAW
+P 2 0 1 8 -50 50 -50 -50 N
+P 2 0 1 0 50 0 -50 0 N
+P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
+X K 1 -150 0 100 R 50 50 1 1 w
+X A 2 150 0 100 L 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+# conn_Conn_01x03
+#
+DEF conn_Conn_01x03 J 0 40 Y N 1 F N
+F0 "J" 0 200 50 H V C CNN
+F1 "conn_Conn_01x03" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 50 -150 1 1 10 f
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 -200 0 150 R 50 50 1 1 P
+X Pin_3 3 -200 -100 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # conn_Conn_01x07
 #
 DEF conn_Conn_01x07 J 0 40 Y N 1 F N
@@ -296,6 +377,107 @@ X Pin_4 4 -200 0 150 R 50 50 1 1 P
 X Pin_5 5 -200 -100 150 R 50 50 1 1 P
 X Pin_6 6 -200 -200 150 R 50 50 1 1 P
 X Pin_7 7 -200 -300 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# conn_Conn_02x03_Odd_Even
+#
+DEF conn_Conn_02x03_Odd_Even J 0 40 Y N 1 F N
+F0 "J" 50 200 50 H V C CNN
+F1 "conn_Conn_02x03_Odd_Even" 50 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*2x??x*mm*
+ Connector*:*2x???Pitch*
+ Pin_Header_Straight_2X*
+ Pin_Header_Angled_2X*
+ Socket_Strip_Straight_2X*
+ Socket_Strip_Angled_2X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 150 -150 1 1 10 f
+S 150 -95 100 -105 1 1 6 N
+S 150 5 100 -5 1 1 6 N
+S 150 105 100 95 1 1 6 N
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 300 100 150 L 50 50 1 1 P
+X Pin_3 3 -200 0 150 R 50 50 1 1 P
+X Pin_4 4 300 0 150 L 50 50 1 1 P
+X Pin_5 5 -200 -100 150 R 50 50 1 1 P
+X Pin_6 6 300 -100 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# conn_Conn_02x06_Odd_Even
+#
+DEF conn_Conn_02x06_Odd_Even J 0 40 Y N 1 F N
+F0 "J" 50 300 50 H V C CNN
+F1 "conn_Conn_02x06_Odd_Even" 50 -400 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*2x??x*mm*
+ Connector*:*2x???Pitch*
+ Pin_Header_Straight_2X*
+ Pin_Header_Angled_2X*
+ Socket_Strip_Straight_2X*
+ Socket_Strip_Angled_2X*
+$ENDFPLIST
+DRAW
+S -50 -295 0 -305 1 1 6 N
+S -50 -195 0 -205 1 1 6 N
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 205 0 195 1 1 6 N
+S -50 250 150 -350 1 1 10 f
+S 150 -295 100 -305 1 1 6 N
+S 150 -195 100 -205 1 1 6 N
+S 150 -95 100 -105 1 1 6 N
+S 150 5 100 -5 1 1 6 N
+S 150 105 100 95 1 1 6 N
+S 150 205 100 195 1 1 6 N
+X Pin_1 1 -200 200 150 R 50 50 1 1 P
+X Pin_10 10 300 -200 150 L 50 50 1 1 P
+X Pin_11 11 -200 -300 150 R 50 50 1 1 P
+X Pin_12 12 300 -300 150 L 50 50 1 1 P
+X Pin_2 2 300 200 150 L 50 50 1 1 P
+X Pin_3 3 -200 100 150 R 50 50 1 1 P
+X Pin_4 4 300 100 150 L 50 50 1 1 P
+X Pin_5 5 -200 0 150 R 50 50 1 1 P
+X Pin_6 6 300 0 150 L 50 50 1 1 P
+X Pin_7 7 -200 -100 150 R 50 50 1 1 P
+X Pin_8 8 300 -100 150 L 50 50 1 1 P
+X Pin_9 9 -200 -200 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# gf1002_GF1002
+#
+DEF gf1002_GF1002 A 0 40 Y Y 1 F N
+F0 "A" -350 350 60 H V C CNN
+F1 "gf1002_GF1002" 225 -350 60 H V C CNN
+F2 "" 0 0 60 H I C CNN
+F3 "" 0 0 60 H I C CNN
+DRAW
+T 900 -200 0 31 0 0 0 INPUT Normal 0 C C
+T 900 125 0 31 0 0 0 OUTPUT Normal 0 C C
+S -400 300 400 -300 0 1 0 N
+P 4 0 1 0 -275 100 -225 100 -225 -100 -275 -100 N
+P 4 0 1 0 200 200 150 200 150 -200 200 -200 N
+X R- 1 500 -200 100 L 50 50 1 1 O
+X R+ 2 500 -100 100 L 50 50 1 1 O
+X L+ 3 500 200 100 L 50 50 1 1 O
+X L- 4 500 100 100 L 50 50 1 1 O
+X GND 5 0 -400 100 U 50 50 1 1 W
+X VCC 6 0 400 100 D 50 50 1 1 W
+X L 7 -500 100 100 R 50 50 1 1 I
+X G 8 -500 0 100 R 50 50 1 1 I
+X R 9 -500 -100 100 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #

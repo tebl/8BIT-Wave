@@ -1,4 +1,4 @@
-172465262978319
+175724178494589
 Air_Coils_SML_NEOSID
 Neosid_Air-Coil_SML_1turn_HDM0131A
 
@@ -51239,6 +51239,13 @@ Tayda_3.5mm_stereo_TRS_jack_A-853
 0
 5
 5
+gf1002
+GF1002_reverse
+Through hole straight pin header, 1x09, 2.54mm pitch, single row
+Through hole pin header THT 1x09 2.54mm single row
+0
+9
+9
 i2c_oled
 0.91_I2C_OLED
 
@@ -51337,6 +51344,13 @@ DEV
 0
 1
 1
+pot_vertical
+Potentiometer_Trimmer_Bourns_3296W
+Spindle Trimmer Potentiometer, Bourns 3296W, https://www.bourns.com/pdfs/3296.pdf
+Spindle Trimmer Potentiometer   Bourns 3296W
+0
+3
+3
 sd_card_adapter
 MicroSD_Card_Adapter
 

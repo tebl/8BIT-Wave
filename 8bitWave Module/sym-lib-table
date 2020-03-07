@@ -34,4 +34,6 @@
   (lib (name audio_jack)(type Legacy)(uri "D:/owncloud/Documents/Projects/8bit Wave/common/library/audio_jack.lib")(options "")(descr ""))
   (lib (name arduino_nano)(type Legacy)(uri "D:/owncloud/Documents/Projects/8bit Wave/common/library/arduino_nano.lib")(options "")(descr ""))
   (lib (name i2c_voltage_select)(type Legacy)(uri "D:/owncloud/Documents/Projects/8bit Wave/common/library/i2c_voltage_select.lib")(options "")(descr ""))
+  (lib (name barrel_jack)(type Legacy)(uri "D:/owncloud/Documents/Projects/8bit Wave/common/library/barrel_jack.lib")(options "")(descr ""))
+  (lib (name gf1002)(type Legacy)(uri "D:/owncloud/Documents/Projects/8bit Wave/common/library/gf1002.lib")(options "")(descr ""))
 )
