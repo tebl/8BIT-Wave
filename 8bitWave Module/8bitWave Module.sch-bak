@@ -1531,10 +1531,10 @@ Text Notes 6225 7400 0    60   ~ 0
 3-4 Enabled\n5-6
 Text Notes 5075 7625 0    60   ~ 0
 (Mainly used with MSX-line of computers)
-Text Notes 4375 4500 0    60   ~ 0
-1-2 Direct
-Text Notes 5050 4500 0    60   ~ 0
-3-4 Direct (AC)
+Text Notes 4325 4600 0    60   ~ 0
+01-02 Direct\n11-12
+Text Notes 5050 4600 0    60   ~ 0
+03-04 Direct (AC)\n11-12
 Text Notes 6025 4600 0    60   ~ 0
 05-06 LM386*\n11-12
 Text Notes 6875 4600 0    60   ~ 0

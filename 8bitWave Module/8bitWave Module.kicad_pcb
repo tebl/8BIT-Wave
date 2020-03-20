@@ -63,7 +63,7 @@
     (aux_axis_origin 0 0)
     (visible_elements 7FFFFFFF)
     (pcbplotparams
-      (layerselection 0x011fc_80000001)
+      (layerselection 0x011fc_ffffffff)
       (usegerberextensions true)
       (usegerberattributes false)
       (usegerberadvancedattributes false)
@@ -2275,7 +2275,7 @@
     (descr "LED, diameter 5.0mm, 2 pins, http://cdn-reichelt.de/documents/datenblatt/A500/LL-504BC2E-009.pdf")
     (tags "LED diameter 5.0mm 2 pins")
     (path /5E3E1B91)
-    (fp_text reference D2 (at 1.27 -3.96 270) (layer F.SilkS)
+    (fp_text reference D2 (at 1.27 0 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value USER (at -1.905 0) (layer F.SilkS)
@@ -3623,7 +3623,7 @@
   (segment (start 137.16 129.54) (end 133.35 129.54) (width 0.381) (layer B.Cu) (net 46))
   (segment (start 131.744999 127.934999) (end 131.445 127.635) (width 0.381) (layer B.Cu) (net 46))
 
-  (zone (net 6) (net_name GND) (layer B.Cu) (tstamp 5E3C9C00) (hatch edge 0.508)
+  (zone (net 6) (net_name GND) (layer B.Cu) (tstamp 5E680318) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
