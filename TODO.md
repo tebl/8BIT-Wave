@@ -4,6 +4,6 @@
  - Backplate
 	 - Test and verify PCB mounting
  - Module
-     - Move potentiometer under tape holes
-	 - Adjust electrolytic capacitor placement to minimize height (horizontal mount)
-	 - power connector (barrel)
+	 - Test and verify 2.5mm footprint (missing part)
+     - Match cutout of amplifier board to actual board (too narrow)
+	 - Move capacitors to make more room

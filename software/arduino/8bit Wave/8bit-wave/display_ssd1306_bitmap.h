@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef OLED_GRAPHIC
+#ifdef DISPLAY_SSD1306_GFX
 #include "ssd1306_hal/io.h"
 #include <stdint.h>
 extern const uint8_t logo [] PROGMEM;

@@ -32,7 +32,7 @@ byte lastByte;
 volatile long count = 0;
 
 /* ISR Variables */
-volatile byte out = LOW;
+volatile PinStatus out = LOW;
 volatile byte pass = 0;
 volatile byte pos = 0;
 volatile byte wbuffer[buffsize + 1][2];
@@ -173,7 +173,7 @@ void wave() {
         if ((pass == 0) | (pass == 1)) {
           digitalWrite(AUDIO_OUT, out);
         } else {
-          digitalWrite(AUDIO_OUT, !out);
+          digitalWrite(AUDIO_OUT, (out == LOW ? HIGH : LOW));
         }
         break;
 
@@ -181,7 +181,7 @@ void wave() {
         if ((pass == 0) | (pass == 2)) {
           digitalWrite(AUDIO_OUT, out);
         } else {
-          digitalWrite(AUDIO_OUT, !out);
+          digitalWrite(AUDIO_OUT, (out == LOW ? HIGH : LOW));
         }
         if (dragonMode == 1 && pass == 1) {
           pass = 3;

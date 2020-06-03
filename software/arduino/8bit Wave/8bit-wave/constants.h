@@ -49,22 +49,9 @@
 #define LED_FLASH_DELAY 100
 
 /* Display settings */
-#ifdef OLED_TEXT
-#define OLED_ADDRESS 0x3C
-#elif OLED_GRAPHIC
-#else
-#define OLED_TEXT
+#ifdef DISPLAY_SSD1306_ASCII
 #define OLED_ADDRESS 0x3C
 #endif
-
-#define OLED_FACTOR 0
-#define OLED_LINE_0 0
-#define OLED_LINE_1 1
-#define OLED_LINE_2 2
-#define OLED_LINES 3
-#define OLED_LINE_WIDTH 16
-#define OLED_CHAR_HEIGHT 8
-#define OLED_CHAR_WIDTH 16
 
 /* Text segments used */
 #define EIGHTBIT_TITLE          "    8BIT Wave   "
