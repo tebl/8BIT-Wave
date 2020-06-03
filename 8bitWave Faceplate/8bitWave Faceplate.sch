@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "8BIT WAVE Faceplate"
 Date ""
-Rev "A"
+Rev "B"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -16,12 +16,12 @@ $EndDescr
 $Comp
 L mounting:Mounting M1
 U 1 1 5E3B603D
-P 10775 550
-F 0 "M1" H 10775 650 50  0001 C CNN
-F 1 "Mounting" H 10775 475 50  0001 C CNN
-F 2 "mounting:M3" H 10775 550 50  0001 C CNN
-F 3 "" H 10775 550 50  0001 C CNN
-	1    10775 550 
+P 9975 525
+F 0 "M1" H 9975 625 50  0001 C CNN
+F 1 "Mounting" H 9975 450 50  0001 C CNN
+F 2 "mounting:M3" H 9975 525 50  0001 C CNN
+F 3 "" H 9975 525 50  0001 C CNN
+	1    9975 525 
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -76,8 +76,6 @@ Text Label 7275 1800 0    60   ~ 0
 SDA
 Entry Wire Line
 	7150 1900 7250 1800
-Wire Wire Line
-	8550 1700 8550 1875
 Wire Wire Line
 	8250 1700 7250 1700
 Wire Wire Line
@@ -204,34 +202,6 @@ Wire Wire Line
 	8250 1700 8250 1875
 Wire Wire Line
 	8100 1800 8100 1875
-Wire Wire Line
-	8550 1700 8825 1700
-Wire Wire Line
-	8825 1700 8825 1800
-$Comp
-L power:GND #PWR05
-U 1 1 5E3EF7B8
-P 8825 1800
-F 0 "#PWR05" H 8825 1550 50  0001 C CNN
-F 1 "GND" H 8825 1650 50  0000 C CNN
-F 2 "" H 8825 1800 50  0001 C CNN
-F 3 "" H 8825 1800 50  0001 C CNN
-	1    8825 1800
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR06
-U 1 1 5E3EF86D
-P 8400 1700
-F 0 "#PWR06" H 8400 1550 50  0001 C CNN
-F 1 "VCC" H 8400 1850 50  0000 C CNN
-F 2 "" H 8400 1700 50  0001 C CNN
-F 3 "" H 8400 1700 50  0001 C CNN
-	1    8400 1700
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	8400 1700 8400 1875
 $Comp
 L power:GND #PWR07
 U 1 1 5E3F40C6
@@ -1004,10 +974,104 @@ NoConn ~ 1125 1375
 NoConn ~ 1125 1475
 NoConn ~ 1125 1575
 NoConn ~ 1125 1875
+Text Notes 1200 1625 0    60   ~ 0
+Not actually used at\nthis point, it is here\nas an option for\nmounting (and\nsymmetry).
+$Comp
+L Jumper:Jumper_3_Bridged12 JP2
+U 1 1 5ED85DD0
+P 9100 1500
+F 0 "JP2" H 9100 1704 50  0000 C CNN
+F 1 "PIN1_GND" H 9100 1613 50  0000 C CNN
+F 2 "wire_pads:OLED_SEL" H 9100 1500 50  0001 C CNN
+F 3 "~" H 9100 1500 50  0001 C CNN
+	1    9100 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:Jumper_3_Bridged12 JP1
+U 1 1 5ED8BDDA
+P 9100 900
+F 0 "JP1" H 9100 1104 50  0000 C CNN
+F 1 "PIN2_VCC" H 9100 1013 50  0000 C CNN
+F 2 "wire_pads:OLED_SEL" H 9100 900 50  0001 C CNN
+F 3 "~" H 9100 900 50  0001 C CNN
+	1    9100 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5ED9181E
+P 8775 1575
+F 0 "#PWR0101" H 8775 1325 50  0001 C CNN
+F 1 "GND" H 8775 1425 50  0000 C CNN
+F 2 "" H 8775 1575 50  0001 C CNN
+F 3 "" H 8775 1575 50  0001 C CNN
+	1    8775 1575
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8775 1575 8775 1500
+Wire Wire Line
+	8775 1500 8850 1500
+Wire Wire Line
+	9350 1500 9425 1500
+Wire Wire Line
+	9425 1500 9425 1425
+$Comp
+L power:VCC #PWR0102
+U 1 1 5EDA6198
+P 9425 1425
+F 0 "#PWR0102" H 9425 1275 50  0001 C CNN
+F 1 "VCC" H 9425 1575 50  0000 C CNN
+F 2 "" H 9425 1425 50  0001 C CNN
+F 3 "" H 9425 1425 50  0001 C CNN
+	1    9425 1425
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0103
+U 1 1 5EDABD2C
+P 8775 825
+F 0 "#PWR0103" H 8775 675 50  0001 C CNN
+F 1 "VCC" H 8775 975 50  0000 C CNN
+F 2 "" H 8775 825 50  0001 C CNN
+F 3 "" H 8775 825 50  0001 C CNN
+	1    8775 825 
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8775 825  8775 900 
+Wire Wire Line
+	8775 900  8850 900 
+$Comp
+L power:GND #PWR0104
+U 1 1 5EDB6E50
+P 9425 975
+F 0 "#PWR0104" H 9425 725 50  0001 C CNN
+F 1 "GND" H 9425 825 50  0000 C CNN
+F 2 "" H 9425 975 50  0001 C CNN
+F 3 "" H 9425 975 50  0001 C CNN
+	1    9425 975 
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9425 975  9425 900 
+Wire Wire Line
+	9425 900  9350 900 
+Wire Wire Line
+	9100 1800 8550 1800
+Wire Wire Line
+	8550 1875 8550 1800
+Wire Wire Line
+	9100 1050 9100 1125
+Wire Wire Line
+	9100 1125 8400 1125
+Wire Wire Line
+	9100 1650 9100 1800
+Wire Wire Line
+	8400 1125 8400 1875
 Wire Bus Line
 	5600 3925 5600 6150
 Wire Bus Line
 	5600 1675 5600 2075
-Text Notes 1200 1625 0    60   ~ 0
-Not actually used at\nthis point, it is here\nas an option for\nmounting (and\nsymmetry).
 $EndSCHEMATC
