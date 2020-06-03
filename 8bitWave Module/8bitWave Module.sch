@@ -795,7 +795,7 @@ Wire Notes Line
 Text Notes 10600 1175 2    60   ~ 0
 OLEDs usually work\nin either position,\nlink pins 1-2 for 3.3v.
 Text Notes 11850 10475 0    60   ~ 0
-Based on the DigiWavuino, but I wanted to build my own version of it with a lot of\nfeatures no one would ever need - mostly because I wanted to play around with\nvarious things Arduino. A 128x64 OLED can be used directly, but the main goal of\nthe project was to hide most things behind a faceplate instead,
+Based on the DigiWavuino, but I wanted to build my own version of it with a lot of\nfeatures no one would ever need - mostly because I wanted to play around with\nvarious things Arduino. A 128x64 OLED can be mounted directly, but the main goal of\nthe project was to hide most things behind a faceplate instead,
 Wire Wire Line
 	13825 6050 13825 6125
 Wire Wire Line
