@@ -795,7 +795,7 @@ Wire Notes Line
 Text Notes 10600 1175 2    60   ~ 0
 OLEDs usually work\nin either position,\nlink pins 1-2 for 3.3v.
 Text Notes 11850 10475 0    60   ~ 0
-Based on the DigiWavuino, but I wanted to build my own version of it with a lot of\nfeatures no one would ever need - mostly because I wanted to play around with\nvarious things Arduino. A 128x64 OLED can be used directly, but the main goal of\nthe project was to hide most things behind a faceplate instead,
+Based on the DigiWavuino, but I wanted to build my own version of it with a lot of\nfeatures no one would ever need - mostly because I wanted to play around with\nvarious things Arduino. A 128x64 OLED can be mounted directly, but the main goal of\nthe project was to hide most things behind a faceplate instead,
 Wire Wire Line
 	13825 6050 13825 6125
 Wire Wire Line
@@ -854,16 +854,14 @@ $EndComp
 $Comp
 L power:GND #PWR0101
 U 1 1 5E61DE6E
-P 2800 9350
-F 0 "#PWR0101" H 2800 9100 50  0001 C CNN
-F 1 "GND" H 2805 9177 50  0000 C CNN
-F 2 "" H 2800 9350 50  0001 C CNN
-F 3 "" H 2800 9350 50  0001 C CNN
-	1    2800 9350
+P 2800 9550
+F 0 "#PWR0101" H 2800 9300 50  0001 C CNN
+F 1 "GND" H 2805 9377 50  0000 C CNN
+F 2 "" H 2800 9550 50  0001 C CNN
+F 3 "" H 2800 9550 50  0001 C CNN
+	1    2800 9550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2800 9350 2800 9275
 Wire Wire Line
 	2800 9275 2725 9275
 Wire Wire Line
@@ -1591,6 +1589,30 @@ Wire Wire Line
 	3025 7275 2800 7275
 Wire Wire Line
 	2800 7275 2800 7200
+$Comp
+L Device:CP_Small C11
+U 1 1 5EDF6CF1
+P 3175 9250
+F 0 "C11" H 2975 9250 50  0000 L CNN
+F 1 "220uF" H 2925 9150 50  0000 L CNN
+F 2 "Capacitors_THT:CP_Radial_D6.3mm_P2.50mm" H 3175 9250 50  0001 C CNN
+F 3 "" H 3175 9250 50  0001 C CNN
+	1    3175 9250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 11075 11600 10875
+Wire Wire Line
+	2800 9275 2800 9425
+Wire Wire Line
+	3175 9350 3175 9425
+Wire Wire Line
+	3175 9425 2800 9425
+Connection ~ 2800 9425
+Wire Wire Line
+	2800 9425 2800 9550
+Wire Wire Line
+	3175 9150 3175 9075
 Wire Bus Line
 	8275 2625 8275 7075
 Wire Bus Line
