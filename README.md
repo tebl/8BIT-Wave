@@ -14,7 +14,7 @@ The Arduino Nano (Atmega328 variety) can be soldered directly onto the board in 
 Further details and lists of required components can be found below under "modules".
 
 ## Project status
-Currently it does not seem to load much of anything anywhere, but I managed to make it load one game on the Dragon 32 using the [MaxDuino](https://github.com/rcmolina/MaxDuino_v1.54) firmware so there is hope that someday I'll be able to make it reliable enough for general use. Different computers do however require finding that special sweet spot in order to even attempting to look like they're loading something, so in that respect it should for the most part be familiar to all who owned one back when they were new. 
+There will always be things to do and polish, but at the current state it is an open design that can be used with the [MaxDuino](https://github.com/rcmolina/MaxDuino_v1.54). Note that different computers have that special sweet spot, so that you will need to do some tweaking in order to find what works best with your specific setup. 
 
 ## Modules
 The project has been split into several modules, these will be stacked together to a complete player. Faceplates and backplates are optional, but normally you would only need one of each (some variants to be added later to match various displays).
