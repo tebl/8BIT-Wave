@@ -22,5 +22,5 @@ The project has been split into several modules, these will be stacked together 
 | Module    |  | Order |
 | --------- | ---------- | ----- |
 | [8BitWave Module](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Module) | required | [PCBWay]() |
-| [8BitWave Faceplate](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Faceplate) | recommended | [PCBWay]() |
+| [8BitWave Faceplate A1](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Faceplate%20A1) | recommended | [PCBWay]() |
 | [8BitWave Backplate](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Backplate) | optional | [PCBWay]() |

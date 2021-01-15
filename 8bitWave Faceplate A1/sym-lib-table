@@ -1,0 +1,7 @@
+(sym_lib_table
+  (lib (name mounting)(type Legacy)(uri $KIPRJMOD/../common/library/mounting.lib)(options "")(descr ""))
+  (lib (name I2C_OLED)(type Legacy)(uri $KIPRJMOD/../common/library/I2C_OLED.lib)(options "")(descr ""))
+  (lib (name 74hc595_alt)(type Legacy)(uri $KIPRJMOD/../common/library/74hc595_alt.lib)(options "")(descr ""))
+  (lib (name i2c_voltage)(type Legacy)(uri $KIPRJMOD/../common/library/i2c_voltage.lib)(options "")(descr ""))
+  (lib (name extension)(type Legacy)(uri $KIPRJMOD/../common/library/extension.lib)(options "")(descr ""))
+)

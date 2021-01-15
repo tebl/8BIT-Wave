@@ -1,13 +1,14 @@
-G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(5.1.5)-3*
-G04 #@! TF.CreationDate,2020-06-03T22:57:54+02:00*
-G04 #@! TF.ProjectId,8bitWave Faceplate,38626974-5761-4766-9520-46616365706c,rev?*
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(5.1.8)-1*
+G04 #@! TF.CreationDate,2021-01-16T00:36:23+01:00*
+G04 #@! TF.ProjectId,8bitWave Faceplate A1,38626974-5761-4766-9520-46616365706c,rev?*
 G04 #@! TF.SameCoordinates,Original*
 G04 #@! TF.FileFunction,OtherDrawing,Comment*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW (5.1.5)-3) date 2020-06-03 22:57:54*
+G04 Created by KiCad (PCBNEW (5.1.8)-1) date 2021-01-16 00:36:23*
 %MOMM*%
 %LPD*%
+G01*
 G04 APERTURE LIST*
 %ADD10C,0.150000*%
 G04 APERTURE END LIST*

@@ -58,7 +58,7 @@ F 3 "" H 15975 550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L switches:SW_SPST SW1
+L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW1
 U 1 1 5E3B6481
 P 14100 4650
 F 0 "SW1" H 14100 4775 50  0000 C CNN
@@ -69,7 +69,7 @@ F 3 "" H 14100 4650 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L switches:SW_SPST SW2
+L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW2
 U 1 1 5E3B64CB
 P 14100 5000
 F 0 "SW2" H 14100 5125 50  0000 C CNN
@@ -80,7 +80,7 @@ F 3 "" H 14100 5000 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L switches:SW_SPST SW3
+L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW3
 U 1 1 5E3B64F8
 P 14100 5350
 F 0 "SW3" H 14100 5475 50  0000 C CNN
@@ -91,7 +91,7 @@ F 3 "" H 14100 5350 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L switches:SW_SPST SW4
+L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW4
 U 1 1 5E3B6550
 P 14100 5700
 F 0 "SW4" H 14100 5825 50  0000 C CNN
@@ -102,7 +102,7 @@ F 3 "" H 14100 5700 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L switches:SW_SPST SW5
+L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW5
 U 1 1 5E3B65A5
 P 14100 6050
 F 0 "SW5" H 14100 6175 50  0000 C CNN
@@ -315,7 +315,7 @@ F 3 "" H 5400 6400 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L linear:LM386 U1
+L 8bitWave-Module-rescue:LM386-linear-8bitWave-Module-rescue U1
 U 1 1 5E3CBAD8
 P 2800 6550
 F 0 "U1" H 2800 6550 50  0000 L CNN
@@ -574,7 +574,7 @@ Entry Wire Line
 Text Label 10725 7700 2    60   ~ 0
 POWER
 $Comp
-L conn:Conn_01x07 J3
+L 8bitWave-Module-rescue:Conn_01x07-conn-8bitWave-Module-rescue J3
 U 1 1 5E3D299E
 P 11975 5700
 F 0 "J3" V 12075 5400 50  0000 C CNN
@@ -953,7 +953,7 @@ Wire Wire Line
 Text Notes 1625 10400 0    60   ~ 0
 PWR_SEL positions 1-2 is used when powering amplifier from\nvia Arduino, or when connecting a 5v supply directly.  Positions\n2-3 is used when powering the entire circuit using a 9-12v DC \nsupply. Unjumpered, the amplifier and the rest of the circuit will\neach need their own power source.
 $Comp
-L conn:Conn_02x03_Odd_Even J5
+L 8bitWave-Module-rescue:Conn_02x03_Odd_Even-conn-8bitWave-Module-rescue J5
 U 1 1 5E7A4F51
 P 6175 5700
 F 0 "J5" H 6225 6017 50  0000 C CNN
@@ -1006,7 +1006,7 @@ Connection ~ 3325 7250
 Text Notes 4350 5100 0    60   ~ 0
 LOW-PASS FILTER
 $Comp
-L conn:Conn_01x03 J6
+L 8bitWave-Module-rescue:Conn_01x03-conn-8bitWave-Module-rescue J6
 U 1 1 5EC476AB
 P 11975 4950
 F 0 "J6" V 12075 4850 50  0000 C CNN
@@ -1411,7 +1411,7 @@ Wire Wire Line
 Text GLabel 3650 6225 2    60   Input ~ 0
 AUD_LINE
 $Comp
-L conn:Conn_02x06_Odd_Even J7
+L 8bitWave-Module-rescue:Conn_02x06_Odd_Even-conn-8bitWave-Module-rescue J7
 U 1 1 5F81D312
 P 6250 3500
 F 0 "J7" H 6300 3875 50  0000 C CNN
@@ -1568,7 +1568,7 @@ Wire Wire Line
 Wire Wire Line
 	13500 775  13500 1400
 $Comp
-L 8bitWave-Module-rescue:POT RV2
+L 8bitWave-Module-rescue:POT-8bitWave-Module-rescue RV2
 U 1 1 5FF950C5
 P 3325 6450
 F 0 "RV2" V 3150 6450 50  0000 C CNN

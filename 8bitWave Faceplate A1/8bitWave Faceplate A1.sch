@@ -16,12 +16,12 @@ $EndDescr
 $Comp
 L mounting:Mounting M1
 U 1 1 5E3B603D
-P 9975 525
-F 0 "M1" H 9975 625 50  0001 C CNN
-F 1 "Mounting" H 9975 450 50  0001 C CNN
-F 2 "mounting:M3" H 9975 525 50  0001 C CNN
-F 3 "" H 9975 525 50  0001 C CNN
-	1    9975 525 
+P 10775 550
+F 0 "M1" H 10775 650 50  0001 C CNN
+F 1 "Mounting" H 10775 475 50  0001 C CNN
+F 2 "mounting:M3" H 10775 550 50  0001 C CNN
+F 3 "" H 10775 550 50  0001 C CNN
+	1    10775 550 
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -954,7 +954,7 @@ Wire Wire Line
 Wire Wire Line
 	3825 1825 3750 1825
 $Comp
-L conn:Conn_01x10 J2
+L Connector_Generic:Conn_01x10 J2
 U 1 1 5E5F2F04
 P 925 1375
 F 0 "J2" H 843 1992 50  0000 C CNN

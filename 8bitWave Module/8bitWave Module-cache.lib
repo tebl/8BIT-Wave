@@ -1,11 +1,175 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# 8bitWave-Module-rescue_POT
+# 8bitWave-Module-rescue_Conn_01x03-conn-8bitWave-Module-rescue
 #
-DEF 8bitWave-Module-rescue_POT RV 0 40 N N 1 F N
+DEF 8bitWave-Module-rescue_Conn_01x03-conn-8bitWave-Module-rescue J 0 40 Y N 1 F N
+F0 "J" 0 200 50 H V C CNN
+F1 "8bitWave-Module-rescue_Conn_01x03-conn-8bitWave-Module-rescue" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 50 -150 1 1 10 f
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 -200 0 150 R 50 50 1 1 P
+X Pin_3 3 -200 -100 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 8bitWave-Module-rescue_Conn_01x07-conn-8bitWave-Module-rescue
+#
+DEF 8bitWave-Module-rescue_Conn_01x07-conn-8bitWave-Module-rescue J 0 40 Y N 1 F N
+F0 "J" 0 400 50 H V C CNN
+F1 "8bitWave-Module-rescue_Conn_01x07-conn-8bitWave-Module-rescue" 0 -400 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 -295 0 -305 1 1 6 N
+S -50 -195 0 -205 1 1 6 N
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 205 0 195 1 1 6 N
+S -50 305 0 295 1 1 6 N
+S -50 350 50 -350 1 1 10 f
+X Pin_1 1 -200 300 150 R 50 50 1 1 P
+X Pin_2 2 -200 200 150 R 50 50 1 1 P
+X Pin_3 3 -200 100 150 R 50 50 1 1 P
+X Pin_4 4 -200 0 150 R 50 50 1 1 P
+X Pin_5 5 -200 -100 150 R 50 50 1 1 P
+X Pin_6 6 -200 -200 150 R 50 50 1 1 P
+X Pin_7 7 -200 -300 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 8bitWave-Module-rescue_Conn_02x03_Odd_Even-conn-8bitWave-Module-rescue
+#
+DEF 8bitWave-Module-rescue_Conn_02x03_Odd_Even-conn-8bitWave-Module-rescue J 0 40 Y N 1 F N
+F0 "J" 50 200 50 H V C CNN
+F1 "8bitWave-Module-rescue_Conn_02x03_Odd_Even-conn-8bitWave-Module-rescue" 50 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*2x??x*mm*
+ Connector*:*2x???Pitch*
+ Pin_Header_Straight_2X*
+ Pin_Header_Angled_2X*
+ Socket_Strip_Straight_2X*
+ Socket_Strip_Angled_2X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 150 -150 1 1 10 f
+S 150 -95 100 -105 1 1 6 N
+S 150 5 100 -5 1 1 6 N
+S 150 105 100 95 1 1 6 N
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 300 100 150 L 50 50 1 1 P
+X Pin_3 3 -200 0 150 R 50 50 1 1 P
+X Pin_4 4 300 0 150 L 50 50 1 1 P
+X Pin_5 5 -200 -100 150 R 50 50 1 1 P
+X Pin_6 6 300 -100 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 8bitWave-Module-rescue_Conn_02x06_Odd_Even-conn-8bitWave-Module-rescue
+#
+DEF 8bitWave-Module-rescue_Conn_02x06_Odd_Even-conn-8bitWave-Module-rescue J 0 40 Y N 1 F N
+F0 "J" 50 300 50 H V C CNN
+F1 "8bitWave-Module-rescue_Conn_02x06_Odd_Even-conn-8bitWave-Module-rescue" 50 -400 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*2x??x*mm*
+ Connector*:*2x???Pitch*
+ Pin_Header_Straight_2X*
+ Pin_Header_Angled_2X*
+ Socket_Strip_Straight_2X*
+ Socket_Strip_Angled_2X*
+$ENDFPLIST
+DRAW
+S -50 -295 0 -305 1 1 6 N
+S -50 -195 0 -205 1 1 6 N
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 205 0 195 1 1 6 N
+S -50 250 150 -350 1 1 10 f
+S 150 -295 100 -305 1 1 6 N
+S 150 -195 100 -205 1 1 6 N
+S 150 -95 100 -105 1 1 6 N
+S 150 5 100 -5 1 1 6 N
+S 150 105 100 95 1 1 6 N
+S 150 205 100 195 1 1 6 N
+X Pin_1 1 -200 200 150 R 50 50 1 1 P
+X Pin_10 10 300 -200 150 L 50 50 1 1 P
+X Pin_11 11 -200 -300 150 R 50 50 1 1 P
+X Pin_12 12 300 -300 150 L 50 50 1 1 P
+X Pin_2 2 300 200 150 L 50 50 1 1 P
+X Pin_3 3 -200 100 150 R 50 50 1 1 P
+X Pin_4 4 300 100 150 L 50 50 1 1 P
+X Pin_5 5 -200 0 150 R 50 50 1 1 P
+X Pin_6 6 300 0 150 L 50 50 1 1 P
+X Pin_7 7 -200 -100 150 R 50 50 1 1 P
+X Pin_8 8 300 -100 150 L 50 50 1 1 P
+X Pin_9 9 -200 -200 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 8bitWave-Module-rescue_LM386-linear-8bitWave-Module-rescue
+#
+DEF 8bitWave-Module-rescue_LM386-linear-8bitWave-Module-rescue U 0 10 Y Y 1 F N
+F0 "U" 50 300 50 H V L CNN
+F1 "8bitWave-Module-rescue_LM386-linear-8bitWave-Module-rescue" 50 200 50 H V L CNN
+F2 "" 100 100 50 H I C CNN
+F3 "" 200 200 50 H I C CNN
+$FPLIST
+ SOIC*3.9x4.9mm*Pitch1.27mm*
+ DIP*W7.62mm*
+ MSSOP*Pitch0.65mm*
+$ENDFPLIST
+DRAW
+P 2 0 1 6 0 -150 0 -100 N
+P 2 0 1 6 0 150 0 100 N
+P 3 0 1 6 100 -150 100 -125 50 -75 N
+P 4 0 1 10 200 0 -200 200 -200 -200 200 0 f
+X ~ 1 0 -300 150 U 50 50 1 1 I
+X - 2 -300 -100 100 R 50 50 1 1 I
+X + 3 -300 100 100 R 50 50 1 1 I
+X Gnd 4 -100 -300 150 U 50 50 1 1 W
+X ~ 5 300 0 100 L 50 50 1 1 O
+X V+ 6 -100 300 150 D 50 50 1 1 W
+X ~ 7 0 300 150 D 50 50 1 1 I
+X ~ 8 100 -300 150 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# 8bitWave-Module-rescue_POT-8bitWave-Module-rescue
+#
+DEF 8bitWave-Module-rescue_POT-8bitWave-Module-rescue RV 0 40 N N 1 F N
 F0 "RV" -175 0 50 V V C CNN
-F1 "8bitWave-Module-rescue_POT" -100 0 50 V V C CNN
+F1 "8bitWave-Module-rescue_POT-8bitWave-Module-rescue" -100 0 50 V V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -18,6 +182,22 @@ P 3 0 1 0 45 0 90 20 90 -20 F
 X 1 1 0 150 50 D 50 50 1 1 P
 X 2 2 150 0 50 L 50 50 1 1 P
 X 3 3 0 -150 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 8bitWave-Module-rescue_SW_SPST-switches-8bitWave-Module-rescue
+#
+DEF 8bitWave-Module-rescue_SW_SPST-switches-8bitWave-Module-rescue SW 0 0 Y N 1 F N
+F0 "SW" 0 125 50 H V C CNN
+F1 "8bitWave-Module-rescue_SW_SPST-switches-8bitWave-Module-rescue" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C -80 0 20 0 0 0 N
+C 80 0 20 0 0 0 N
+P 2 0 0 0 -60 10 60 70 N
+X A 1 -200 0 100 R 50 50 1 1 P
+X B 2 200 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
@@ -68,6 +248,9 @@ F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
  SolderJumper*Open*
+ Jumper*
+ TestPoint*2Pads*
+ TestPoint*Bridge*
 $ENDFPLIST
 DRAW
 C -40 0 20 0 1 0 N
@@ -90,9 +273,9 @@ $FPLIST
  LED_THT:*
 $ENDFPLIST
 DRAW
-P 2 0 1 0 -30 -40 -30 40 N
+P 2 0 1 10 -30 -40 -30 40 N
 P 2 0 1 0 40 0 -30 0 N
-P 4 0 1 0 30 -40 -30 0 30 40 30 -40 N
+P 4 0 1 10 30 -40 -30 0 30 40 30 -40 N
 P 5 0 1 0 0 30 -20 50 -10 50 -20 50 -20 40 N
 P 5 0 1 0 20 50 0 70 10 70 0 70 0 60 N
 X K 1 -100 0 70 R 50 50 1 1 P
@@ -142,7 +325,9 @@ F1 "Jumper_Jumper_3_Bridged12" 0 110 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
- SolderJumper*Bridged12*
+ Jumper*
+ TestPoint*3Pads*
+ TestPoint*Bridge*
 $ENDFPLIST
 DRAW
 A -65 -50 89 1282 518 0 1 0 N -120 20 -10 20
@@ -320,142 +505,6 @@ X A 2 150 0 100 L 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# conn_Conn_01x03
-#
-DEF conn_Conn_01x03 J 0 40 Y N 1 F N
-F0 "J" 0 200 50 H V C CNN
-F1 "conn_Conn_01x03" 0 -200 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*_??x*mm*
- Connector*:*1x??x*mm*
- Pin?Header?Straight?1X*
- Pin?Header?Angled?1X*
- Socket?Strip?Straight?1X*
- Socket?Strip?Angled?1X*
-$ENDFPLIST
-DRAW
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 105 0 95 1 1 6 N
-S -50 150 50 -150 1 1 10 f
-X Pin_1 1 -200 100 150 R 50 50 1 1 P
-X Pin_2 2 -200 0 150 R 50 50 1 1 P
-X Pin_3 3 -200 -100 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# conn_Conn_01x07
-#
-DEF conn_Conn_01x07 J 0 40 Y N 1 F N
-F0 "J" 0 400 50 H V C CNN
-F1 "conn_Conn_01x07" 0 -400 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*_??x*mm*
- Connector*:*1x??x*mm*
- Pin?Header?Straight?1X*
- Pin?Header?Angled?1X*
- Socket?Strip?Straight?1X*
- Socket?Strip?Angled?1X*
-$ENDFPLIST
-DRAW
-S -50 -295 0 -305 1 1 6 N
-S -50 -195 0 -205 1 1 6 N
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 105 0 95 1 1 6 N
-S -50 205 0 195 1 1 6 N
-S -50 305 0 295 1 1 6 N
-S -50 350 50 -350 1 1 10 f
-X Pin_1 1 -200 300 150 R 50 50 1 1 P
-X Pin_2 2 -200 200 150 R 50 50 1 1 P
-X Pin_3 3 -200 100 150 R 50 50 1 1 P
-X Pin_4 4 -200 0 150 R 50 50 1 1 P
-X Pin_5 5 -200 -100 150 R 50 50 1 1 P
-X Pin_6 6 -200 -200 150 R 50 50 1 1 P
-X Pin_7 7 -200 -300 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# conn_Conn_02x03_Odd_Even
-#
-DEF conn_Conn_02x03_Odd_Even J 0 40 Y N 1 F N
-F0 "J" 50 200 50 H V C CNN
-F1 "conn_Conn_02x03_Odd_Even" 50 -200 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*2x??x*mm*
- Connector*:*2x???Pitch*
- Pin_Header_Straight_2X*
- Pin_Header_Angled_2X*
- Socket_Strip_Straight_2X*
- Socket_Strip_Angled_2X*
-$ENDFPLIST
-DRAW
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 105 0 95 1 1 6 N
-S -50 150 150 -150 1 1 10 f
-S 150 -95 100 -105 1 1 6 N
-S 150 5 100 -5 1 1 6 N
-S 150 105 100 95 1 1 6 N
-X Pin_1 1 -200 100 150 R 50 50 1 1 P
-X Pin_2 2 300 100 150 L 50 50 1 1 P
-X Pin_3 3 -200 0 150 R 50 50 1 1 P
-X Pin_4 4 300 0 150 L 50 50 1 1 P
-X Pin_5 5 -200 -100 150 R 50 50 1 1 P
-X Pin_6 6 300 -100 150 L 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# conn_Conn_02x06_Odd_Even
-#
-DEF conn_Conn_02x06_Odd_Even J 0 40 Y N 1 F N
-F0 "J" 50 300 50 H V C CNN
-F1 "conn_Conn_02x06_Odd_Even" 50 -400 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*2x??x*mm*
- Connector*:*2x???Pitch*
- Pin_Header_Straight_2X*
- Pin_Header_Angled_2X*
- Socket_Strip_Straight_2X*
- Socket_Strip_Angled_2X*
-$ENDFPLIST
-DRAW
-S -50 -295 0 -305 1 1 6 N
-S -50 -195 0 -205 1 1 6 N
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 105 0 95 1 1 6 N
-S -50 205 0 195 1 1 6 N
-S -50 250 150 -350 1 1 10 f
-S 150 -295 100 -305 1 1 6 N
-S 150 -195 100 -205 1 1 6 N
-S 150 -95 100 -105 1 1 6 N
-S 150 5 100 -5 1 1 6 N
-S 150 105 100 95 1 1 6 N
-S 150 205 100 195 1 1 6 N
-X Pin_1 1 -200 200 150 R 50 50 1 1 P
-X Pin_10 10 300 -200 150 L 50 50 1 1 P
-X Pin_11 11 -200 -300 150 R 50 50 1 1 P
-X Pin_12 12 300 -300 150 L 50 50 1 1 P
-X Pin_2 2 300 200 150 L 50 50 1 1 P
-X Pin_3 3 -200 100 150 R 50 50 1 1 P
-X Pin_4 4 300 100 150 L 50 50 1 1 P
-X Pin_5 5 -200 0 150 R 50 50 1 1 P
-X Pin_6 6 300 0 150 L 50 50 1 1 P
-X Pin_7 7 -200 -100 150 R 50 50 1 1 P
-X Pin_8 8 300 -100 150 L 50 50 1 1 P
-X Pin_9 9 -200 -200 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
 # gf1002_GF1002
 #
 DEF gf1002_GF1002 A 0 40 Y Y 1 F N
@@ -497,34 +546,6 @@ C 120 0 35 0 1 0 N
 X 1 1 -250 0 95 R 50 50 0 1 W
 X 2 2 0 -100 60 U 50 50 0 1 w
 X 3 3 250 0 95 L 50 50 0 1 W
-ENDDRAW
-ENDDEF
-#
-# linear_LM386
-#
-DEF linear_LM386 U 0 10 Y Y 1 F N
-F0 "U" 50 300 50 H V L CNN
-F1 "linear_LM386" 50 200 50 H V L CNN
-F2 "" 100 100 50 H I C CNN
-F3 "" 200 200 50 H I C CNN
-$FPLIST
- SOIC*3.9x4.9mm*Pitch1.27mm*
- DIP*W7.62mm*
- MSSOP*Pitch0.65mm*
-$ENDFPLIST
-DRAW
-P 2 0 1 6 0 -150 0 -100 N
-P 2 0 1 6 0 150 0 100 N
-P 3 0 1 6 100 -150 100 -125 50 -75 N
-P 4 0 1 10 200 0 -200 200 -200 -200 200 0 f
-X ~ 1 0 -300 150 U 50 50 1 1 I
-X - 2 -300 -100 100 R 50 50 1 1 I
-X + 3 -300 100 100 R 50 50 1 1 I
-X Gnd 4 -100 -300 150 U 50 50 1 1 W
-X ~ 5 300 0 100 L 50 50 1 1 O
-X V+ 6 -100 300 150 D 50 50 1 1 W
-X ~ 7 0 300 150 D 50 50 1 1 I
-X ~ 8 100 -300 150 U 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
@@ -615,22 +636,6 @@ F3 "" 0 0 50 H I C CNN
 DRAW
 P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
 X GND 1 0 0 0 D 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# switches_SW_SPST
-#
-DEF switches_SW_SPST SW 0 0 Y N 1 F N
-F0 "SW" 0 125 50 H V C CNN
-F1 "switches_SW_SPST" 0 -100 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-C -80 0 20 0 0 0 N
-C 80 0 20 0 0 0 N
-P 2 0 0 0 -60 10 60 70 N
-X A 1 -200 0 100 R 50 50 1 1 P
-X B 2 200 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
