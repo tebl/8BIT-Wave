@@ -26,6 +26,12 @@ Continue by following sections [1.1](#11-installing-common-components) to instal
 - [1.2> Installing low-pass filter](#12-installing-low-pass-filter)
 - [1.3> Installing amplifier](#13-installing-amplifier)
 
+When all that is done, including any work that needs to be done on the faceplate/backplate you should now be able to put the entire thing together. What I recommend is that you get one of those M3 nylon hex standoff kits, that way you have a bunch available of various lengths that you can use while you build the completed solution. The ones I've between the faceplate and the main module are 12mm long, then whatever is the shortest I have available between backplate and the main module.
+
+A minimum height build is shown below, here it is running Maxduino and the total height is around 26mm which is pretty good compared to most cased designs.
+
+![Completed build](https://github.com/tebl/8BIT-Wave/raw/master/gallery/build_003.jpg)
+
 ### 1.1> Installing common components
 Solder parts specified in [common components](#31-common-components) into place, but take note that depending on the build you're going for you'll probably need to use some hex standoffs between this module and the faceplate - the ones I'm using is 12mm tall. You might get away with substituting the long pin headers with the regular ones if you opt to install the Arduino directly without anything in between, but doing so requires you to do some dry-fitting along the way to make sure nothing becomes too short (a long pin can be cut, a short one can be heated and pushed a bit through to make up for it).
 
