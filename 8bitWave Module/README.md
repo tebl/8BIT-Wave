@@ -2,18 +2,18 @@
 
 The 8BIT Wave module is the main heart of the project, it contains most of the active components found within the project. Building the module requires that you take some time to consider to which options you require, some in the case of the chosen amplifier are mutually exclusive and they both have their plusses and minuses. If you're still in the process of ordering components, skip to the BOM section of the document and start there - note that other modules such has the faceplate will have their documents detailing their construction and part specifications.
 
-- [1> Building the module]
-  - 1.1> Installing common components
-  - 1.2> Installing low-pass filter
-  - 1.3> Installing amplifier
-    - 1.3.1 LM386 amplifier option
-    - 1.3.2 GF1002 amplifier option
-- 2> Schematic
-- 3> BOM
-  - 3.1> Common components
-  - 3.2> LM386 (amplifier)
-  - 3.3> GF1002 (amplifier)
-  - 3.4> Low-pass filter
+- 1> [Building the module](#1-building-the-module)
+  - 1.1> [Installing common components](#11-installing-common-components)
+  - 1.2> [Installing low-pass filter](#12-installing-low-pass-filter)
+  - 1.3> [Installing amplifier](#13-installing-amplifier)
+    - [1.3.1> LM386 amplifier option](#131-lm386-amplifier-option)
+    - [1.3.2> GF1002 amplifier option](#132-gf1002-amplifier-option)
+- 2> [Schematic](#2-schematic)
+- 3> [BOM](#3-bom)
+  - 3.1> [Common components](#31-common-components)
+  - 3.2> [LM386 (amplifier)](#32-lm386-amplifier)
+  - 3.3> [GF1002 (amplifier)](#33-gf1002-amplifier)
+  - 3.4> [Low-pass filter](#34-low-pass-filter)
 
 ## 1> Building the module
 So you've decided that you want the 8BIT Wave in your life, a bold choice and might I go so far as smile that someone took the time to build something I designed. The first step before breaking out the soldering iron, you can't use a glue-gun for this unless you do some extreme overclocking on the thing, is going through and ordering all the little bits you'll need. This should all be detailed inside the section later in this document, called the [BOM](#3-bom) (bill of manufacturing). Note that you will however have to make some decisions about a few of the options, mainly the amplification used and whether you want to install components for the low-pass filter. Read each section carefully before you commit to something, components are always harder to desolder than it is to solder them into place (when in doubt and have the extra PCB, just build another one - twice the solder fumes for just about the same price).
@@ -23,7 +23,7 @@ Got everything needed? Awesome. Break out your soldering iron, add some water to
 Continue by following sections [1.1](#11-installing-common-components) to install common common components, [1.2](#12-installing-low-pass-filter) to install a low-pass filter (if needed) and finally the amplifier option you require by following on in section [1.3](#13-installing-amplifier).
 
 - [1.1> Installing common components](#11-installing-common-components)
-- [1.2> Installing low-pass filter]((#12-installing-low-pass-filter))
+- [1.2> Installing low-pass filter](#12-installing-low-pass-filter)
 - [1.3> Installing amplifier](#13-installing-amplifier)
 
 ### 1.1> Installing common components
@@ -52,7 +52,7 @@ Using the classic LM386 amplifier is more or less the goto choice for any amateu
 
 Try it out, it might work perfectly at 5v too so you need to try out which works best for the systems you have. If you explicitly don't want to add a 9v power supply into the mix, the [GF1002 amplifier](#132-gf1002-amplifier-option) is a different option that has been designed to operate at 5v.
 
-Still here? 9v center positive power supply it is then. Install components specified in the [BOM](#33-fg1002-amplifier). Link pins JP6 pins 2-3 and make a checkmark in the 9v checkbox on the back of the module, this is here so you don't accidentally connect the wrong voltage to the module. Note that with JP6 in the wrong position, this will more than likely fry most of the components on the board - do it right or watch it burn (probably a lot less spectacular than that)! Refer to the picture below if in doubt.
+Still here? 9v center positive power supply it is then. Install components specified in the [BOM](#32-lm386-amplifier). Link pins JP6 pins 2-3 and make a checkmark in the 9v checkbox on the back of the module, this is here so you don't accidentally connect the wrong voltage to the module. Note that with JP6 in the wrong position, this will more than likely fry most of the components on the board - do it right or watch it burn (probably a lot less spectacular than that)! Refer to the picture below if in doubt.
 
 ![LM386 Install](https://github.com/tebl/8BIT-Wave/raw/master/gallery/build_lm386_001.jpg)
 
