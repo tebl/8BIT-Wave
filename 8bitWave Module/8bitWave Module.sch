@@ -58,7 +58,7 @@ F 3 "" H 15975 550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW1
+L Switch:SW_Push SW1
 U 1 1 5E3B6481
 P 14100 4650
 F 0 "SW1" H 14100 4775 50  0000 C CNN
@@ -69,7 +69,7 @@ F 3 "" H 14100 4650 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW2
+L Switch:SW_Push SW2
 U 1 1 5E3B64CB
 P 14100 5000
 F 0 "SW2" H 14100 5125 50  0000 C CNN
@@ -80,7 +80,7 @@ F 3 "" H 14100 5000 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW3
+L Switch:SW_Push SW3
 U 1 1 5E3B64F8
 P 14100 5350
 F 0 "SW3" H 14100 5475 50  0000 C CNN
@@ -91,7 +91,7 @@ F 3 "" H 14100 5350 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW4
+L Switch:SW_Push SW4
 U 1 1 5E3B6550
 P 14100 5700
 F 0 "SW4" H 14100 5825 50  0000 C CNN
@@ -102,7 +102,7 @@ F 3 "" H 14100 5700 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L 8bitWave-Module-rescue:SW_SPST-switches-8bitWave-Module-rescue SW5
+L Switch:SW_Push SW5
 U 1 1 5E3B65A5
 P 14100 6050
 F 0 "SW5" H 14100 6175 50  0000 C CNN
@@ -315,7 +315,7 @@ F 3 "" H 5400 6400 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L 8bitWave-Module-rescue:LM386-linear-8bitWave-Module-rescue U1
+L Amplifier_Audio:LM386 U1
 U 1 1 5E3CBAD8
 P 2800 6550
 F 0 "U1" H 2800 6550 50  0000 L CNN
@@ -574,7 +574,7 @@ Entry Wire Line
 Text Label 10725 7700 2    60   ~ 0
 POWER
 $Comp
-L 8bitWave-Module-rescue:Conn_01x07-conn-8bitWave-Module-rescue J3
+L Connector_Generic:Conn_01x07 J3
 U 1 1 5E3D299E
 P 11975 5700
 F 0 "J3" V 12075 5400 50  0000 C CNN
@@ -792,9 +792,9 @@ Wire Notes Line
 	11625 1400 10675 1400
 Wire Notes Line
 	10675 1400 10675 725 
-Text Notes 10600 1175 2    60   ~ 0
+Text Notes 10550 1175 2    60   ~ 0
 OLEDs usually work\nin either position,\nlink pins 1-2 for 3.3v.
-Text Notes 11850 10475 0    60   ~ 0
+Text Notes 11850 10375 0    60   ~ 0
 Based on the DigiWavuino, but I wanted to build my own version of it with a lot of\nfeatures no one would ever need - mostly because I wanted to play around with\nvarious things Arduino. A 128x64 OLED can be mounted directly, but the main goal of\nthe project was to hide most things behind a faceplate instead,
 Wire Wire Line
 	13825 6050 13825 6125
@@ -953,7 +953,7 @@ Wire Wire Line
 Text Notes 1625 10400 0    60   ~ 0
 PWR_SEL positions 1-2 is used when powering amplifier from\nvia Arduino, or when connecting a 5v supply directly.  Positions\n2-3 is used when powering the entire circuit using a 9-12v DC \nsupply. Unjumpered, the amplifier and the rest of the circuit will\neach need their own power source.
 $Comp
-L 8bitWave-Module-rescue:Conn_02x03_Odd_Even-conn-8bitWave-Module-rescue J5
+L Connector_Generic:Conn_02x03_Odd_Even J5
 U 1 1 5E7A4F51
 P 6175 5700
 F 0 "J5" H 6225 6017 50  0000 C CNN
@@ -1006,7 +1006,7 @@ Connection ~ 3325 7250
 Text Notes 4350 5100 0    60   ~ 0
 LOW-PASS FILTER
 $Comp
-L 8bitWave-Module-rescue:Conn_01x03-conn-8bitWave-Module-rescue J6
+L Connector_Generic:Conn_01x03 J6
 U 1 1 5EC476AB
 P 11975 4950
 F 0 "J6" V 12075 4850 50  0000 C CNN
@@ -1411,7 +1411,7 @@ Wire Wire Line
 Text GLabel 3650 6225 2    60   Input ~ 0
 AUD_LINE
 $Comp
-L 8bitWave-Module-rescue:Conn_02x06_Odd_Even-conn-8bitWave-Module-rescue J7
+L Connector_Generic:Conn_02x06_Odd_Even J7
 U 1 1 5F81D312
 P 6250 3500
 F 0 "J7" H 6300 3875 50  0000 C CNN
@@ -1568,7 +1568,7 @@ Wire Wire Line
 Wire Wire Line
 	13500 775  13500 1400
 $Comp
-L 8bitWave-Module-rescue:POT-8bitWave-Module-rescue RV2
+L Device:R_POT RV2
 U 1 1 5FF950C5
 P 3325 6450
 F 0 "RV2" V 3150 6450 50  0000 C CNN
@@ -1600,8 +1600,6 @@ F 3 "" H 3175 9250 50  0001 C CNN
 	1    3175 9250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	11600 11075 11600 10875
 Wire Wire Line
 	2800 9275 2800 9425
 Wire Wire Line
