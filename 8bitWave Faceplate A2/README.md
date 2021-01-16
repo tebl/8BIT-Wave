@@ -1,4 +1,4 @@
-# 8BIT Wave Faceplate A1
+# 8BIT Wave Faceplate A2
 
 The faceplate is mainly what separates the *8BIT Wave* from all other tzxduino clones, it makes it *really really cool* (to quote a really really cool comedy about male supermodels)! You could actually do without the thing entirely as the OLED-display could potentially be installed on the main module instead, but what would the fun be in building a unit that'd be less than what it could be. The difference between A1 and A2 is that A2 doesn't include a bunch of extra SMD components, mostly there because I wanted to practice on soldering those (in doubt, get the A2 variant).
 
