@@ -17,10 +17,13 @@ Further details will be available as part of the documentation for each of the [
 There will always be things to do and polish, but at the current state it is an open design that can be used with the [MaxDuino](https://github.com/rcmolina/MaxDuino_v1.54). Note that different computers have that special sweet spot, so that you will need to do some tweaking in order to find what works best with your specific setup. 
 
 ## 2> Modules
-The project has been split into several modules, these will be stacked together to a complete player. Faceplates and backplates are optional, but normally you would only need one of each (some variants to be added later to match various displays).
+The project has been split into several modules, these will be stacked together to a complete player. Faceplates and backplates can be considered optional, but normally you would only need one of each (some variants will be added later to match various displays so check out the description for each module before you commit).
 
 | Module    |  | Order |
 | --------- | ---------- | ----- |
-| [8BitWave Module](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Module) | required | [PCBWay]() |
-| [8BitWave Faceplate A1](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Faceplate%20A1) | recommended | [PCBWay]() |
-| [8BitWave Backplate](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Backplate) | optional | [PCBWay]() |
+| [8BitWave Module](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Module) | required | [PCBWay](https://www.pcbway.com/project/shareproject/8BitWave_Module.html) |
+| [8BitWave Faceplate A1](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Faceplate%20A1) | optional | |
+| [8BitWave Faceplate A2](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Faceplate%20A2) | recommended | [PCBWay](https://www.pcbway.com/project/shareproject/8BitWave_Faceplate.html) |
+| [8BitWave Backplate](https://github.com/tebl/8BIT-Wave/tree/master/8bitWave%20Backplate) | optional | [PCBWay](https://www.pcbway.com/project/shareproject/8BitWave_Backplate.html) |
+
+I'm using PCBway because I get a discount for every PCB ordered via them, so if you want to support this project then that is the way to do it. For other fabrication houses you would normally need to do is zip-up the contents of the export directory for each module and hand them those files (these are what is known as Gerber files). Note that the latest Gerber files may contain changes not yet tested by me, so if you want the ones I've tested then checkout my [PCBway shared projects](https://www.pcbway.com/project/shareproject/?tag=8BIT-Wave) relating to this project.
